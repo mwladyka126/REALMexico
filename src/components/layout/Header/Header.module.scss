@@ -1,4 +1,50 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
 
-// .root {
-// }
+.root {
+  .container {
+    @include container;
+    @include wrapper;
+    font-family: $font-text;
+    background-color: $color-background-color;
+    font-size: $base-size * 1.5;
+    font-weight: bold;
+    &__logo {
+      max-width: 150px;
+      max-height: 50px;
+      margin-bottom: 50px;
+      img {
+        @include image;
+      }
+    }
+    &__navbar {
+      .navItem {
+        @include link;
+        margin: $base-size;
+        color: $color-text-dark;
+        &:hover {
+          color: $color-text-light;
+        }
+      }
+      .dropdown {
+        color: $color-text-dark;
+        margin: 5px;
+        &:hover {
+          color: $color-text-light;
+        }
+      }
+    }
+    &__cart {
+      margin: 0 auto;
+      .icon {
+        font-size: $base-size * 2;
+        color: $color-text-dark;
+
+        &:hover {
+          transform: scale(1.25);
+          transition: $transition;
+        }
+      }
+    }
+  }
+}

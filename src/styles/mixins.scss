@@ -9,4 +9,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+}
+@mixin image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+@mixin link {
+  text-decoration: none;
 }
