@@ -33,8 +33,8 @@ const Component = ({ className, children }) => (
         <div className={styles.footer__top__title}>
           <p> Contact us </p>
         </div>
-        <Row container spacing={3} className={styles.footer__top__inner}>
-          <Col xs="12" sm="6" md="2" className={styles.footer__top__col}>
+        <Row className={styles.footer__top__inner}>
+          <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon
               icon={faEnvelope}
               href="contact@REALMexico.com"
@@ -42,76 +42,82 @@ const Component = ({ className, children }) => (
             />
             <p>By mail</p>
             <p className={styles.link}>
-              <Link to={`#`}>contact@REALMexico.com</Link>
+              <Link to={`#`} className={styles.link}>
+                contact@REALMexico.com
+              </Link>
             </p>
           </Col>
-          <Col xs="12" sm="6" md="2" className={styles.footer__top__col}>
+          <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon icon={faCalendarAlt} className={styles.icon} />
             <p>Every day on weeks days</p>
             <p>From 8:00 till 16:00</p>
           </Col>
-          <Col xs="12" sm="6" md="2" className={styles.footer__top__col}>
+          <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon icon={faPhone} className={styles.icon} />
             <p>By phone</p>
             <p>+52-1-10766-655</p>
           </Col>
-          <Col xs="12" sm="6" md="2" className={styles.footer__top__col}>
+          <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon icon={faMapMarkedAlt} className={styles.icon} />
             <p>Our agency</p>
             <p>Avenida Merida</p>
           </Col>
-          <Col xs="12" sm="6" md="2" className={styles.footer__top__col}>
+          <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon icon={faMapMarkedAlt} className={styles.icon} />
             <p>On social media</p>
-            <Link href="#">
-              <FontAwesomeIcon
-                icon={faFacebookF}
-                href="#"
-                className={styles.icon}
-              />
-            </Link>
-            <Link href="#">
-              <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
-            </Link>
-            <Link href="#">
-              <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
-            </Link>
-            <Link href="#">
-              <FontAwesomeIcon icon={faPinterest} className={styles.icon} />
-            </Link>
-            <Link href="#">
-              <FontAwesomeIcon icon={faGooglePlusG} className={styles.icon} />
-            </Link>
+            <div>
+              <Link href="#">
+                <FontAwesomeIcon
+                  icon={faFacebookF}
+                  href="#"
+                  className={styles.icon}
+                />
+              </Link>
+              <Link href="#">
+                <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
+              </Link>
+              <Link href="#">
+                <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
+              </Link>
+              <Link href="#">
+                <FontAwesomeIcon icon={faPinterest} className={styles.icon} />
+              </Link>
+              <Link href="#">
+                <FontAwesomeIcon icon={faGooglePlusG} className={styles.icon} />
+              </Link>
+            </div>
           </Col>
         </Row>
       </Container>
       <Container className={styles.footer__neewsletter}>
-        <Row>
-          <Col xs="12" sm="12" md="6">
+        <Row className={styles.footer__neewsletter__inner}>
+          <Col
+            xs="12"
+            sm="12"
+            md="7"
+            className={styles.footer__neewsletter__inner__col}
+          >
             <p>Follow our team of experts, live from our destinations.</p>
             <p>
               Subscribe to our monthly newsletter to receive the latest news and
               tips from Terra agencies all over the world.
             </p>
           </Col>
-          <Col xs="12" sm="12" md="4">
-            <div className={styles.iconBox}>
-              <FontAwesomeIcon className={styles.icon} icon={faEnvelope} />
-            </div>
+          <Col
+            xs="12"
+            sm="12"
+            md="5"
+            className={styles.footer__neewsletter__inner__col}
+          >
             <input
               icon={faLongArrowAltRight}
               type="text"
               placeholder="Enter your email address"
               required
+              className={styles.input}
             />
-          </Col>
-          <Col xs="12" sm="12" md="2">
-            <Button>
-              <FontAwesomeIcon
-                className={styles.icon}
-                icon={faLongArrowAltRight}
-              ></FontAwesomeIcon>
-            </Button>
+
+            <Button className={styles.button}>Subscribe</Button>
           </Col>
         </Row>
       </Container>

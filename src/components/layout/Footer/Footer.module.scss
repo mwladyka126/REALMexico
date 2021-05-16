@@ -1,4 +1,68 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
 
-// .root {
-// }
+.root {
+  .footer {
+    @include container;
+    font-family: $font-text;
+    background-color: $color-background-color;
+    font-size: $base-size * 1.5;
+    color: $color-text-light;
+    &__top {
+      &__title {
+        @include wrapper;
+        font-weight: bold;
+        p {
+          margin: 0 auto;
+          font-size: $base-size * 2;
+          padding: $base-size * 1.5;
+        }
+      }
+      &__inner {
+        @include wrapper;
+        padding: $base-size 0;
+
+        &__col {
+          @include wrapper;
+          flex-direction: column;
+
+          > p:nth-child(2) {
+            font-weight: bold;
+          }
+          .link {
+            @include link;
+          }
+          .icon {
+            font-size: $base-size * 1.5;
+            color: $color-text-light;
+            margin: 5px;
+          }
+        }
+      }
+    }
+    &__neewsletter {
+      padding: $base-size * 1.5;
+      &__inner {
+        @include wrapper;
+        &__col {
+          @include wrapper;
+          flex-direction: column;
+          > p:first-child {
+            font-weight: bold;
+          }
+          .input {
+            height: 35px;
+            border-color: $color-background-color;
+            margin: 0 5px;
+            width: 100%;
+          }
+          .button {
+            width: 100%;
+            font-weight: bold;
+            margin: $base-size 0;
+          }
+        }
+      }
+    }
+  }
+}
