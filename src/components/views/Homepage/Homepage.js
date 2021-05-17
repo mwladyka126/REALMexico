@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Carousel } from "../../common/Carousel/Carousel";
+import { Carousel } from "../../features/Carousel/Carousel";
+import { RegionsOverview } from "../RegionsOverview/RegionsOverview";
 
 import clsx from "clsx";
 
@@ -13,6 +14,7 @@ const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
     <h2>Homepage</h2>
     <Carousel />
+    <RegionsOverview />
 
     {children}
   </div>

@@ -4,10 +4,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { initialState } from "./initialState";
 import { reducer as offersReducer } from "./offersRedux";
+import { reducer as regionsReducer } from "./regionsRedux";
 
 // define reducers
 const reducers = {
   offers: offersReducer,
+  regions: regionsReducer,
 };
 
 // add blank reducers for initial state properties without reducers

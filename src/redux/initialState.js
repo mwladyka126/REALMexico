@@ -74,11 +74,16 @@ export const initialState = {
   },
   regions: {
     data: [
-      { id: "1", name: "Riviera Maya" },
-      { id: "2", name: "Oaxaca" },
-      { id: "3", name: "Chiapas" },
-      { id: "4", name: "Jalisco" },
-      { id: "5", name: "Ciudad de Mexico" },
+      { id: "1", name: "Riviera Maya", image: "/images/offers/tulum.jpg" },
+      { id: "2", name: "Oaxaca", image: "/images/offers/oaxaca.jpg" },
+      { id: "3", name: "Chiapas", image: "/images/offers/Palenque2.jpg" },
+      { id: "4", name: "Jalisco", image: "/images/offers/tequila2.jpg" },
+      { id: "5", name: "Ciudad de Mexico", image: "/images/offers/CDMX.jpg" },
+      {
+        id: "6",
+        name: "Huasteca Potosina",
+        image: "/images/offers/Huasteca2.jpg",
+      },
     ],
     loading: {
       active: false,
