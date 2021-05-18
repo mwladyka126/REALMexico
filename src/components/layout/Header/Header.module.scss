@@ -2,11 +2,11 @@
 @import "../../../styles/mixins.scss";
 
 .root {
+  background-color: $color-background-light;
   .container {
     @include container;
     @include wrapper;
     font-family: $font-text;
-    background-color: $color-background-color;
     font-size: $base-size * 1.5;
     font-weight: bold;
     &__logo {
@@ -23,14 +23,14 @@
         margin: $base-size;
         color: $color-text-dark;
         &:hover {
-          color: $color-text-light;
+          color: $color-main;
         }
       }
       .dropdown {
         color: $color-text-dark;
         margin: 5px;
         &:hover {
-          color: $color-text-light;
+          color: $color-main;
         }
       }
     }

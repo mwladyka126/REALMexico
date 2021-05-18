@@ -100,7 +100,7 @@ const Component = ({ className, children }) => (
             <p>Follow our team of experts, live from our destinations.</p>
             <p>
               Subscribe to our monthly newsletter to receive the latest news and
-              tips from Terra agencies all over the world.
+              tips from our agencies all over the world.
             </p>
           </Col>
           <Col

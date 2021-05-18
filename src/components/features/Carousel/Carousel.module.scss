@@ -2,8 +2,32 @@
 
 .root {
   .carousel__image {
+    height: 400px;
   }
   .carousel__description {
     color: $color-text-light;
+  }
+}
+@media (max-width: 700px) {
+  .carousel__description {
+    bottom: 40%;
+    h1 {
+      font-size: $base-size * 1.3;
+    }
+    h4 {
+      font-size: $base-size;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .carousel__description {
+    bottom: 60%;
+    h1 {
+      font-size: $base-size * 1.3;
+    }
+    h4 {
+      font-size: $base-size;
+    }
   }
 }

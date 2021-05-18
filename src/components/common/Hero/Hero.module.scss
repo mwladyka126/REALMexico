@@ -2,7 +2,6 @@
 @import "../../../styles/mixins.scss";
 
 .root {
-  @include container;
   .description {
     @include wrapper;
     @include container;
@@ -22,28 +21,6 @@
     }
     &__subtitle {
       padding: $base-size;
-    }
-  }
-  .offer {
-    margin: $base-size 0;
-    .link {
-      @include link;
-      .image {
-        @include image;
-        height: 300px;
-        &:hover {
-          transform: scale(1.5);
-          transition: $transition;
-        }
-      }
-      .wrapper {
-        display: flex;
-        .name {
-          color: $color-text-dark;
-          font-weight: bold;
-          margin: 0 auto;
-        }
-      }
     }
   }
 }

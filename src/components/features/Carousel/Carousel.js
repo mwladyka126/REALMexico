@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 import styles from "./Carousel.module.scss";
 
-const Component = ({ className, children }) => {
+const Component = ({ className }) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -28,8 +28,8 @@ const Component = ({ className, children }) => {
             alt="First slide"
           />
           <Carousel.Caption className={styles.carousel__description}>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h1>Tailor made trips in Mexico </h1>
+            <h4>Nulla vitae elit libero, a pharetra augue mollis interdum.</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className={styles.carousel__image}>
@@ -39,8 +39,8 @@ const Component = ({ className, children }) => {
             alt="Second slide"
           />
           <Carousel.Caption className={styles.carousel__description}>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h1> Fall in love with Mexico</h1>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className={styles.carousel__image}>
@@ -50,10 +50,10 @@ const Component = ({ className, children }) => {
             alt="Third slide"
           />
           <Carousel.Caption className={styles.carousel__description}>
-            <h3>Third slide label</h3>
-            <p>
+            <h1>Trips that maches your profile</h1>
+            <h4>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            </h4>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -62,7 +62,6 @@ const Component = ({ className, children }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 

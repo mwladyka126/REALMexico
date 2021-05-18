@@ -2,10 +2,11 @@
 @import "../../../styles/mixins.scss";
 
 .root {
+  background-color: $color-background-color;
   .footer {
     @include container;
     font-family: $font-text;
-    background-color: $color-background-color;
+
     font-size: $base-size * 1.5;
     color: $color-text-light;
     &__top {
@@ -36,6 +37,10 @@
             font-size: $base-size * 1.5;
             color: $color-text-light;
             margin: 5px;
+            &:hover {
+              transform: scale(1.5);
+              transition: $transition;
+            }
           }
         }
       }
