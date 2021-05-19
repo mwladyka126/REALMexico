@@ -63,7 +63,7 @@ const Component = ({ className, regions }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
+  regions: PropTypes.array,
   className: PropTypes.string,
 };
 

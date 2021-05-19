@@ -4,7 +4,7 @@ export const initialState = {
       {
         id: "1",
         region: "Riviera Maya",
-        title: "The most beautiful beaches in the World!",
+        title: "The most beautiful beaches",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
         price: 3000,
@@ -29,21 +29,21 @@ export const initialState = {
       },
       {
         id: "3",
-        region: "Chiapas",
+        region: "Around San Cristobal",
         title: "Chiapas",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
         price: 3000,
         image: [
-          "/images/offers/oaxaca.jpg",
-          "/images/offerss/hierveAqua.jpg",
-          "/images/offers/PuertoEscondido.jpg",
+          "/images/offers/sanCristobal.jpg",
+          "/images/offerss/sanCristobal2.jpg",
+          "/images/offers/Palenque.jpg",
         ],
       },
       {
         id: "4",
         region: "Jalisco",
-        title: "Tequila region",
+        title: "Around Guadalajara",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
         price: 3000,
@@ -63,6 +63,71 @@ export const initialState = {
         image: [
           "/images/offers/CDMX.jpg",
           "/images/offerss/CDMX2.jpg",
+          "/images/offers/teotihuacan.jpg",
+        ],
+      },
+      {
+        id: "6",
+        region: "Riviera Maya",
+        title: "Amazing Bacalar",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        price: 3000,
+        image: [
+          "/images/offers/bacalar.jpg",
+          "/images/offerss/IslaMujeres.jpg",
+          "/images/offers/PuertoMorelos.jpg",
+        ],
+      },
+      {
+        id: "7",
+        region: "Beaches of Oaxaca",
+        title: "The heart of Mexican cultute",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        price: 3000,
+        image: [
+          "/images/offers/PuertoEscondido.jpg",
+          "/images/offerss/hierveAqua.jpg",
+          "/images/offers/PuertoEscondido.jpg",
+        ],
+      },
+      {
+        id: "8",
+        region: "Chiapas",
+        title: "Chiapas",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        price: 3000,
+        image: [
+          "/images/offers/Palenque.jpg",
+          "/images/offerss/sanCristobal.jpg",
+          "/images/offers/Palenque2.jpg",
+        ],
+      },
+      {
+        id: "9",
+        region: "Jalisco",
+        title: "Tequila",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        price: 3000,
+        image: [
+          "/images/offers/Tequila2.jpg",
+          "/images/offerss/tequila.jpg",
+          "/images/offers/Guadalajara.jpg",
+        ],
+      },
+      {
+        id: "10",
+        region: "Ciudad de Mexico",
+        title: "CDMX",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        price: 3000,
+        image: [
+          "/images/offers/CDMX2.jpg",
+          "/images/offerss/CDMX.jpg",
           "/images/offers/teotihuacan.jpg",
         ],
       },

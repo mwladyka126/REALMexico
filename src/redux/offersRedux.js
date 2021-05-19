@@ -1,5 +1,5 @@
 /* selectors */
-export const getAll = ({ offers }) => offers.data;
+export const getAllOffers = ({ offers }) => offers.data;
 
 /* action name creator */
 const reducerName = "offers";
