@@ -20,11 +20,15 @@ const Component = ({ className }) => {
 
   return (
     <div className={clsx(className, styles.root)}>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel
+        className={styles.carousel__image}
+        activeIndex={index}
+        onSelect={handleSelect}
+      >
         <Carousel.Item className={styles.carousel__image}>
           <img
             className="d-block w-100"
-            src="images/offers/Huasteca4.jpg"
+            src="/images/offers/Huasteca4.jpg"
             alt="First slide"
           />
           <Carousel.Caption className={styles.carousel__description}>
@@ -35,7 +39,7 @@ const Component = ({ className }) => {
         <Carousel.Item className={styles.carousel__image}>
           <img
             className="d-block w-100"
-            src="images/offers/Huasteca1.jpg"
+            src="/images/offers/Huasteca1.jpg"
             alt="Second slide"
           />
           <Carousel.Caption className={styles.carousel__description}>
@@ -46,7 +50,7 @@ const Component = ({ className }) => {
         <Carousel.Item className={styles.carousel__image}>
           <img
             className="d-block w-100"
-            src="images/offers/Huasteca2.jpg"
+            src="/images/offers/Huasteca2.jpg"
             alt="Third slide"
           />
           <Carousel.Caption className={styles.carousel__description}>

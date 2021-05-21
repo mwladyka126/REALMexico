@@ -38,7 +38,7 @@ const App = () => (
               <Route exact path="/offers/:regionId" component={Region} />
               <Route
                 exact
-                path="/products/:regionId/:offerId"
+                path="/offers/:regionId/:offerId"
                 component={OfferPage}
               />
               <Route exact path="/cart" component={Cart} />

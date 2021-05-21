@@ -1,4 +1,14 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
 
-// .root {
-// }
+.root {
+  @include container;
+  color: $color-text-dark;
+  .photoWrapper {
+    height: 300px;
+    position: relative;
+    img {
+      @include image;
+    }
+  }
+}

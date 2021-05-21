@@ -24,7 +24,7 @@ const Component = ({
         <h2>{title}</h2>
       </div>
       <Button
-        size="normal"
+        size="large"
         variant="contained"
         className={styles.description__button}
       >
