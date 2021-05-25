@@ -44,12 +44,10 @@ const Component = ({ className, quantity, maxNumber }) => {
         </Button>
         <input
           onChange={(e) => handleChange(parseInt(e.target.value))}
-          className={styles.inputSmall}
           type="text"
           value={count}
           className={styles.input}
         ></input>
-
         <Button
           variant="contained"
           onClick={() => handleIncrease(count)}

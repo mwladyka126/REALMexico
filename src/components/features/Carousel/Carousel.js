@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 import styles from "./Carousel.module.scss";
 
-const Component = ({ className }) => {
+const Component = ({ className, slides }) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -25,41 +25,15 @@ const Component = ({ className }) => {
         activeIndex={index}
         onSelect={handleSelect}
       >
-        <Carousel.Item className={styles.carousel__image}>
-          <img
-            className="d-block w-100"
-            src="/images/offers/Huasteca4.jpg"
-            alt="First slide"
-          />
-          <Carousel.Caption className={styles.carousel__description}>
-            <h1>Tailor made trips in Mexico </h1>
-            <h4>Nulla vitae elit libero, a pharetra augue mollis interdum.</h4>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item className={styles.carousel__image}>
-          <img
-            className="d-block w-100"
-            src="/images/offers/Huasteca1.jpg"
-            alt="Second slide"
-          />
-          <Carousel.Caption className={styles.carousel__description}>
-            <h1> Fall in love with Mexico</h1>
-            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item className={styles.carousel__image}>
-          <img
-            className="d-block w-100"
-            src="/images/offers/Huasteca2.jpg"
-            alt="Third slide"
-          />
-          <Carousel.Caption className={styles.carousel__description}>
-            <h1>Trips that maches your profile</h1>
-            <h4>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </h4>
-          </Carousel.Caption>
-        </Carousel.Item>
+        {slides.map((item) => (
+          <Carousel.Item key={item.id} className={styles.carousel__image}>
+            <img className="d-block w-100" src={item.image} alt="First slide" />
+            <Carousel.Caption className={styles.carousel__description}>
+              <h1>{item.title} </h1>
+              <h4>{item.subtitle}</h4>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
       </Carousel>
     </div>
   );
@@ -67,6 +41,7 @@ const Component = ({ className }) => {
 
 Component.propTypes = {
   className: PropTypes.string,
+  slides: PropTypes.array,
 };
 
 // const mapStateToProps = state => ({

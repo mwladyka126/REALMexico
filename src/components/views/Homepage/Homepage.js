@@ -10,14 +10,36 @@ import clsx from "clsx";
 
 import styles from "./Homepage.module.scss";
 
-const Component = ({ className }) => (
-  <div className={clsx(className, styles.root)}>
-    <Carousel />
-    <div>
-      <RegionsOverview className={styles.regions} />
+const Component = ({ className }) => {
+  const slidesGalery = [
+    {
+      id: "1",
+      image: "images/offers/IslaMujeres.jpg",
+      title: "Tailor made trips in Mexico",
+      subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+    },
+    {
+      id: "2",
+      image: "/images/offers/Huasteca4.jpg",
+      title: "Fall in love with Mexico",
+      subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+    },
+    {
+      id: "3",
+      image: "images/offers/Huasteca2.jpg",
+      title: "Trips that maches your profile",
+      subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+    },
+  ];
+  return (
+    <div className={clsx(className, styles.root)}>
+      <Carousel slides={slidesGalery} />
+      <div>
+        <RegionsOverview className={styles.regions} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,

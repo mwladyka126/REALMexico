@@ -7,6 +7,7 @@
   .photoWrapper {
     height: 300px;
     position: relative;
+    margin-bottom: $base-size * 2;
     img {
       @include image;
     }

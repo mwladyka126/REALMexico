@@ -18,7 +18,6 @@ import { BookingForm } from "../../features/BookingForm/BookingForm";
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
     <Row>
-      <Carousel className={styles.carousel} />
       <Col xs="12" sm="7">
         <Hero
           title="Discover Mexico with us"
@@ -29,7 +28,7 @@ const Component = ({ className, children }) => (
           of local experts to create your own tailor-made trip"
           link="/offers"
         />
-        <Carousel />
+
         <div>
           <h3>DAY OF THE DEAD IN OAXACA 2020</h3>
           <p>
