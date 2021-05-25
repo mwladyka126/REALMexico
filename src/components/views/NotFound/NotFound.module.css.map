@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,4EAAI;AACZ,OAAO,CAAC,mEAAI;AAIZ,YAAY;AAcZ,WAAW;AAIX,gBAAgB;ADrBhB,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,IAAc;CAQxB;;AATD,AAEE,KAFG,CAEH,MAAM,CAAC;EACL,KAAK,ECIK,OAAO;CDHlB;;AAJH,AAKE,KALG,CAKH,OAAO,CAAC;EACN,KAAK,ECDK,IAAI;EDEd,MAAM,ECNE,IAAI;CDOb",
+    "sources": [
+        "NotFound.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "NotFound.module.css"
+}

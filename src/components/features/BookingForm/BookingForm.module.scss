@@ -1,0 +1,33 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
+
+.root {
+  .booking {
+    color: $color-text-dark;
+    @include container;
+
+    &__item {
+      @include wrapper;
+      padding: $base-size * 2 0;
+      .title {
+        margin: 0 auto;
+      }
+      .subtitle {
+        margin-top: $base-size * 2;
+      }
+      .textarea {
+        width: 100%;
+      }
+      .button {
+        margin: 0 auto;
+        background-color: $color-background-color;
+        padding: $base-size;
+        color: $color-text-light;
+        font-family: bold;
+        .icon {
+          font-size: $base-size * 2;
+        }
+      }
+    }
+  }
+}

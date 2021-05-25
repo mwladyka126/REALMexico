@@ -3,14 +3,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import { Row, Col } from "reactstrap";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Hero } from "../../common/Hero/Hero";
 import { Carousel } from "../../features/Carousel/Carousel";
 
@@ -21,9 +13,10 @@ import clsx from "clsx";
 
 import styles from "./OfferPage.module.scss";
 
+import { BookingForm } from "../../features/BookingForm/BookingForm";
+
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
-    <h2>OfferPage</h2>
     <Row>
       <Carousel className={styles.carousel} />
       <Col xs="12" sm="7">
@@ -74,21 +67,7 @@ const Component = ({ className, children }) => (
         </div>
       </Col>
       <Col xs="12" sm="5">
-        <Card>
-          <h2>Start you journey with us</h2>
-          <p>
-            {" "}
-            At the moment you only need to know the start day, minimum amout of
-            days and minium amount of persons. All the rest you can book later!
-            We are flexible! You can always book later more days or bring your
-            friends or family with you!
-          </p>
-          <h3>Fill the booking form</h3>
-          <Button variant="contained" color="primary">
-            Book now
-            <FontAwesomeIcon icon={faCartPlus} className={styles.icon} />
-          </Button>
-        </Card>
+        <BookingForm />
       </Col>
     </Row>
     {children}

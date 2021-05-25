@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,4EAAI;AACZ,OAAO,CAAC,mEAAI;AAIZ,YAAY;AAcZ,WAAW;AAIX,gBAAgB;AAvBhB,OAAO,CAAC,4EAAI;AACZ,OAAO,CAAC,mEAAI;AAIZ,YAAY;AAcZ,WAAW;AAIX,gBAAgB;ADpBhB,AAAA,KAAK,CAAC;EEAJ,MAAM,EAAE,MAAM;EACd,SAAS,EAAE,MAAM;EACjB,OAAO,EDFG,IAAI;EDEd,KAAK,ECOW,OAAO;CDCxB;;AAVD,AAGE,KAHG,CAGH,aAAa,CAAC;EACZ,MAAM,EAAE,KAAK;EACb,QAAQ,EAAE,QAAQ;CAInB;;AATH,AAMI,KANC,CAGH,aAAa,CAGX,GAAG,CAAC;EEMN,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CFNT",
+    "sources": [
+        "OfferPage.module.scss",
+        "../../../styles/settings.scss",
+        "../../../styles/mixins.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "OfferPage.module.css"
+}

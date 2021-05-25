@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,4EAAI;AACZ,OAAO,CAAC,mEAAI;AAIZ,YAAY;AAcZ,WAAW;AAIX,gBAAgB",
+    "sources": [
+        "Cart.module.scss",
+        "../../../styles/settings.scss"
+    ],
+    "names": [],
+    "file": "Cart.module.css"
+}

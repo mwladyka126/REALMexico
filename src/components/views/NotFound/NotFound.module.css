@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+/* Colors */
+/* Fonts */
+/* Transition */
+.root {
+  padding: 24px;
+}
+
+.root .title {
+  color: #ff0000;
+}
+
+.root .button {
+  color: #fff;
+  margin: 12px;
+}
+/*# sourceMappingURL=NotFound.module.css.map */
