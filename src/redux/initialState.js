@@ -23,7 +23,7 @@ export const initialState = {
         price: 9000,
         image: [
           "/images/offers/oaxaca.jpg",
-          "/images/offers/hierveAqua.jpg",
+          "/images/offers/hierveAgua.jpg",
           "/images/offers/PuertoEscondido.jpg",
         ],
       },

@@ -2,6 +2,11 @@
 export const getAllOffers = ({ offers }) => offers.data;
 export const getOneOffer = ({ offers }, offerId) =>
   offers.data.find((offer) => offer.id === offerId);
+export const getOffersByRegion = ({ offers }, regionName) =>
+  offers.data.filter((offer) => {
+    const nameSmall = offer.region.replace(" ", "").toLowerCase();
+    return nameSmall === regionName;
+  });
 
 /* action name creator */
 const reducerName = "offers";

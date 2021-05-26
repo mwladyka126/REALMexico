@@ -4,6 +4,11 @@
 .root {
   @include container;
   color: $color-text-dark;
+  .element {
+    padding: $base-size 0;
+    @include wrapper;
+    justify-content: center;
+  }
   .photoWrapper {
     height: 300px;
     position: relative;

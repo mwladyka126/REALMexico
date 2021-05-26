@@ -15,27 +15,22 @@ import styles from "./OfferPage.module.scss";
 
 import { BookingForm } from "../../features/BookingForm/BookingForm";
 
-const Component = ({ className, children, offer }) => {
+const Component = ({ className, offer }) => {
   const regionId = offer.region.replace(" ", "").toLowerCase();
   return (
     <div className={clsx(className, styles.root)}>
       <Row>
         <Col xs="12" sm="7">
-          <Hero
-            title={`Discover ${offer.region} region`}
-            buttonDesc={`${offer.region} offers`}
-            subtitle="Discover our selection of experiences in Mexico. Must-see tours,
-          honeymoon itineraries, adventure trips, all are flexible and will
-          adapt to your needs and expectations. Get inspired and trust our team
-          of local experts to create your own tailor-made trip"
-            link={`/offers/${regionId}`}
-          />
-
           <div>
-            <h3>{offer.title}</h3>
-            <p>{offer.description}</p>
-            <h3>Highlights</h3>
-            <p>{offer.description}</p>
+            <div className={styles.element}>
+              <h3>{offer.title}</h3>
+              <p>{offer.description}</p>
+            </div>
+
+            <div className={styles.element}>
+              <h3>Highlights</h3>
+              <p>{offer.description}</p>
+            </div>
             <Row>
               <Col>
                 <div className={styles.photoWrapper}>
@@ -55,19 +50,26 @@ const Component = ({ className, children, offer }) => {
                 </div>
               </Col>
             </Row>
+            <Hero
+              title={`Discover ${offer.region} region`}
+              buttonDesc={`${offer.region} trips`}
+              subtitle="Discover our selection of experiences in Mexico. Must-see tours,
+          honeymoon itineraries, adventure trips, all are flexible and will
+          adapt to your needs and expectations. Get inspired and trust our team
+          of local experts to create your own tailor-made trip"
+              link={`/offers/${regionId}`}
+            />
           </div>
         </Col>
         <Col xs="12" sm="5">
           <BookingForm price={offer.price} />
         </Col>
       </Row>
-      {children}
     </div>
   );
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 
