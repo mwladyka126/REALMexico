@@ -10,33 +10,33 @@ export const initialState = {
         price: 3000,
         image: [
           "/images/offers/tulum.jpg",
-          "/images/offerss/IslaMujeres.jpg",
+          "/images/offers/IslaMujeres.jpg",
           "/images/offers/PuertoMorelos.jpg",
         ],
       },
       {
         id: "2",
         region: "Oaxaca",
-        title: "The heart of Mexican cultute",
+        title: "The heart of Mexican culture",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 9000,
         image: [
           "/images/offers/oaxaca.jpg",
-          "/images/offerss/hierveAqua.jpg",
+          "/images/offers/hierveAqua.jpg",
           "/images/offers/PuertoEscondido.jpg",
         ],
       },
       {
         id: "3",
-        region: "Around San Cristobal",
-        title: "Chiapas",
+        region: "Chiapas",
+        title: "Around San Cristobal",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 7000,
         image: [
           "/images/offers/sanCristobal.jpg",
-          "/images/offerss/sanCristobal2.jpg",
+          "/images/offers/sanCristobal2.jpg",
           "/images/offers/Palenque.jpg",
         ],
       },
@@ -46,23 +46,23 @@ export const initialState = {
         title: "Around Guadalajara",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 5000,
         image: [
           "/images/offers/Tequila.jpg",
-          "/images/offerss/tequila2.jpg",
+          "/images/offers/tequila2.jpg",
           "/images/offers/Guadalajara.jpg",
         ],
       },
       {
         id: "5",
-        region: "Ciudad de Mexico",
+        region: "CDMX",
         title: "Amazig capital",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 7000,
         image: [
           "/images/offers/CDMX.jpg",
-          "/images/offerss/CDMX2.jpg",
+          "/images/offers/CDMX2.jpg",
           "/images/offers/teotihuacan.jpg",
         ],
       },
@@ -75,20 +75,20 @@ export const initialState = {
         price: 3000,
         image: [
           "/images/offers/bacalar.jpg",
-          "/images/offerss/IslaMujeres.jpg",
+          "/images/offers/IslaMujeres.jpg",
           "/images/offers/PuertoMorelos.jpg",
         ],
       },
       {
         id: "7",
-        region: "Beaches of Oaxaca",
-        title: "The heart of Mexican cultute",
+        region: "Oaxaca",
+        title: "The heart of Mexican culture",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
         price: 3000,
         image: [
           "/images/offers/PuertoEscondido.jpg",
-          "/images/offerss/hierveAqua.jpg",
+          "/images/offers/hierveAgua.jpg",
           "/images/offers/PuertoEscondido.jpg",
         ],
       },
@@ -98,10 +98,10 @@ export const initialState = {
         title: "Chiapas",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 9000,
         image: [
           "/images/offers/Palenque.jpg",
-          "/images/offerss/sanCristobal.jpg",
+          "/images/offers/sanCristobal.jpg",
           "/images/offers/Palenque2.jpg",
         ],
       },
@@ -111,23 +111,23 @@ export const initialState = {
         title: "Tequila",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 3500,
         image: [
           "/images/offers/Tequila2.jpg",
-          "/images/offerss/tequila.jpg",
-          "/images/offers/Guadalajara.jpg",
+          "/images/offers/tequila.jpg",
+          "/images/offers/Guadalajara1.jpg",
         ],
       },
       {
         id: "10",
-        region: "Ciudad de Mexico",
-        title: "CDMX",
+        region: "CDMX",
+        title: "Ciudad de Mexico",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        price: 3000,
+        price: 3890,
         image: [
           "/images/offers/CDMX2.jpg",
-          "/images/offerss/CDMX.jpg",
+          "/images/offers/CDMX.jpg",
           "/images/offers/teotihuacan.jpg",
         ],
       },

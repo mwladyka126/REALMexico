@@ -8,88 +8,81 @@ import { Carousel } from "../../features/Carousel/Carousel";
 
 import clsx from "clsx";
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from "react-redux";
+import { getOneOffer } from "../../../redux/offersRedux.js";
 
 import styles from "./OfferPage.module.scss";
 
 import { BookingForm } from "../../features/BookingForm/BookingForm";
 
-const Component = ({ className, children }) => (
-  <div className={clsx(className, styles.root)}>
-    <Row>
-      <Col xs="12" sm="7">
-        <Hero
-          title="Discover Mexico with us"
-          buttonDesc="All offers"
-          subtitle="Discover our selection of experiences in Mexico. Must-see tours,
+const Component = ({ className, children, offer }) => {
+  const regionId = offer.region.replace(" ", "").toLowerCase();
+  return (
+    <div className={clsx(className, styles.root)}>
+      <Row>
+        <Col xs="12" sm="7">
+          <Hero
+            title={`Discover ${offer.region} region`}
+            buttonDesc={`${offer.region} offers`}
+            subtitle="Discover our selection of experiences in Mexico. Must-see tours,
           honeymoon itineraries, adventure trips, all are flexible and will
           adapt to your needs and expectations. Get inspired and trust our team
           of local experts to create your own tailor-made trip"
-          link="/offers"
-        />
+            link={`/offers/${regionId}`}
+          />
 
-        <div>
-          <h3>DAY OF THE DEAD IN OAXACA 2020</h3>
-          <p>
-            {" "}
-            Make 2020 the year you experience the incredible Day of the Dead
-            celebrations in Oaxaca. This one-of-a-kind festival is a vibrant
-            fiesta of elaborate costumes, grand feasts, and vivid colors. But
-            it’s also a time for quiet reflection and poignant moments to
-            remember lost loved ones. Travel with Journey Mexico and we’ll craft
-            a fully personalized itinerary to let you experience Day of the Dead
-            on your owns terms without the hassle of traveling with a group.
-            Take a read through our suggested itinerary – remember, everything
-            can be altered to your preferences – to get a feel of what your Day
-            of the Dead in Oaxaca could be.
-          </p>
-          <Row>
-            <Col>
-              <div className={styles.photoWrapper}>
-                <img src="/images/offers/Huasteca2.jpg" alt="" />
-              </div>
-            </Col>
-            <Col>
-              <div className={styles.photoWrapper}>
-                <img src="/images/offers/Huasteca2.jpg" alt="" />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <div className={styles.photoWrapper}>
-                <img src="/images/offers/Huasteca2.jpg" alt="" />
-              </div>
-            </Col>
-          </Row>
-        </div>
-      </Col>
-      <Col xs="12" sm="5">
-        <BookingForm />
-      </Col>
-    </Row>
-    {children}
-  </div>
-);
+          <div>
+            <h3>{offer.title}</h3>
+            <p>{offer.description}</p>
+            <h3>Highlights</h3>
+            <p>{offer.description}</p>
+            <Row>
+              <Col>
+                <div className={styles.photoWrapper}>
+                  <img src={offer.image[0]} alt={offer.title} />
+                </div>
+              </Col>
+              <Col>
+                <div className={styles.photoWrapper}>
+                  <img src={offer.image[1]} alt={offer.title} />
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <div className={styles.photoWrapper}>
+                  <img src={offer.image[2]} alt={offer.title} />
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </Col>
+        <Col xs="12" sm="5">
+          <BookingForm price={offer.price} />
+        </Col>
+      </Row>
+      {children}
+    </div>
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = (state, props) => ({
+  offer: getOneOffer(state, props.match.params.offerId),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as OfferPage,
-  // Container as OfferPage,
+  //Component as OfferPage,
+  Container as OfferPage,
   Component as OfferPageComponent,
 };

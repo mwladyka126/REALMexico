@@ -6,7 +6,7 @@
     @include wrapper;
     @include container;
     color: $color-text-dark;
-    padding: $base-size;
+    padding: $base-size 0;
     &__title {
       padding: $base-size;
     }

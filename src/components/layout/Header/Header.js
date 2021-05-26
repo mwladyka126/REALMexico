@@ -33,20 +33,23 @@ const Component = ({ className, children }) => {
         <div className={styles.container__navbar}>
           <Navbar light expand="md">
             <Nav className="ml-auto" navbar>
-              <Link to={"/offers/1"} className={styles.navItem}>
+              <Link to={"/offers/rivieramaya"} className={styles.navItem}>
                 Riviera Maya
               </Link>
-              <Link to={"/offers/2"} className={styles.navItem}>
+              <Link to={"/offers/oaxaca"} className={styles.navItem}>
                 Oaxaca
               </Link>
-              <Link to={"/offers/3"} className={styles.navItem}>
+              <Link to={"/offers/chiapas"} className={styles.navItem}>
                 Chiapas
               </Link>
-              <Link to={"/offers/4"} className={styles.navItem}>
+              <Link to={"/offers/jalisco"} className={styles.navItem}>
                 Jalisco
               </Link>
-              <Link to={"/offers/5"} className={styles.navItem}>
+              <Link to={"/offers/cdmx"} className={styles.navItem}>
                 Ciudad de Mexico
+              </Link>
+              <Link to={"/offers/huastecapotosina"} className={styles.navItem}>
+                Huasteca Potosina
               </Link>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret className={styles.dropdown}>

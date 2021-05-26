@@ -1,5 +1,7 @@
 /* selectors */
 export const getAllOffers = ({ offers }) => offers.data;
+export const getOneOffer = ({ offers }, offerId) =>
+  offers.data.find((offer) => offer.id === offerId);
 
 /* action name creator */
 const reducerName = "offers";

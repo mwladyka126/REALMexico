@@ -17,7 +17,7 @@ import clsx from "clsx";
 
 import styles from "./BookingForm.module.scss";
 
-const Component = ({ className, children }) => (
+const Component = ({ className, children, price }) => (
   <div className={clsx(className, styles.root)}>
     <Card className={styles.booking}>
       <CardContent>
@@ -45,7 +45,7 @@ const Component = ({ className, children }) => (
         </div>
         <div className={styles.booking__item}>
           <p>Price: </p>
-          <p>600</p>
+          <p>{price}</p>
         </div>
         <div className={styles.booking__item}>
           <p>Total price: </p>
