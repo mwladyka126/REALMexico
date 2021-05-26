@@ -20,6 +20,20 @@ const Component = ({ className, offers, match }) => {
   const regionName = match.params.regionName;
   const region = offers.map((el) => el.region)[0];
 
+  if (offers.length == 0) {
+    return (
+      <Hero
+        title="No offers from this region at the momement"
+        buttonDesc="All offers"
+        subtitle="Discover our selection of experiences in Mexico. Must-see tours,
+      honeymoon itineraries, adventure trips, all are flexible and will
+      adapt to your needs and expectations. Get inspired and trust our team
+      of local experts to create your own tailor-made trip"
+        link="/offers"
+      />
+    );
+  }
+
   return (
     <div className={clsx(className, styles.root)}>
       <Hero
