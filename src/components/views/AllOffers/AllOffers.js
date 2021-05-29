@@ -17,9 +17,6 @@ import { getAllOffers } from "../../../redux/offersRedux.js";
 import styles from "./AllOffers.module.scss";
 
 const Component = ({ className, allOffers }) => {
-  const modifiedOffers = allOffers.forEach((el) => {
-    el.region.replace(" ", "").toLowerCase();
-  });
   return (
     <div className={clsx(className, styles.root)}>
       <Hero
@@ -32,35 +29,40 @@ const Component = ({ className, allOffers }) => {
         link="/"
       />
       <Row>
-        {modifiedOffers.map((offer) => (
-          <Col xs="12" sm="6" md="4" key={offer.id}>
-            <Card className={styles.offer}>
-              <Link
-                to={`/offers/${offer.region}/${offer.id}`}
-                className={styles.link}
-              >
-                <CardActionArea>
-                  <CardMedia
-                    className={styles.image}
-                    component="img"
-                    image={offer.image[0]}
-                    title={offer.title}
-                  />
-                  <CardContent className={styles.wrapper}>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      className={styles.name}
-                    >
-                      {offer.title}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Link>
-            </Card>
-          </Col>
-        ))}
+        {allOffers.map(
+          (offer) => (
+            offer.region.replace(" ", "").toLowerCase(),
+            (
+              <Col xs="12" sm="6" md="4" key={offer.id}>
+                <Card className={styles.offer}>
+                  <Link
+                    to={`/offers/${offer.region}/${offer.id}`}
+                    className={styles.link}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        className={styles.image}
+                        component="img"
+                        image={offer.image[0]}
+                        title={offer.title}
+                      />
+                      <CardContent className={styles.wrapper}>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="h2"
+                          className={styles.name}
+                        >
+                          {offer.title}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
+                </Card>
+              </Col>
+            )
+          )
+        )}
       </Row>
     </div>
   );

@@ -5,8 +5,9 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
 import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { DatePicker } from "../../common/DatePicker/DatePicker";
 import { AmountCounter } from "../../common/AmountCounter/AmountCounter";
 
@@ -37,10 +38,21 @@ const Component = ({ className, children, price }) => (
           <p>Start day: </p> <DatePicker />
         </div>
         <div className={styles.booking__item}>
-          <p>Amount of days: </p> <AmountCounter maxNumber={30} />
+          <Tooltip title="for more then 30 days, contact us">
+            <p>
+              Amount of days:
+              <FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
+            </p>
+          </Tooltip>
+          <AmountCounter maxNumber={30} />
         </div>
         <div className={styles.booking__item}>
-          <p>Amount of people: </p>
+          <Tooltip title="for more then 20 people, contact us">
+            <p>
+              Amount of people:
+              <FontAwesomeIcon icon={faInfoCircle} className={styles.icon} />
+            </p>
+          </Tooltip>
           <AmountCounter maxNumber={20} />
         </div>
         <div className={styles.booking__item}>

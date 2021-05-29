@@ -20,7 +20,7 @@ const Component = ({ className, offers, match }) => {
   const regionName = match.params.regionName;
   const region = offers.map((el) => el.region)[0];
 
-  if (offers.length == 0) {
+  if (offers.length === 0) {
     return (
       <Hero
         title="No offers from this region at the momement"
