@@ -72,7 +72,7 @@ const Component = ({ className, children, price }) => (
         </div>
         <div className={styles.booking__item}>
           <Button variant="contained" className={styles.button}>
-            Book now
+            Add to cart
             <FontAwesomeIcon icon={faCartPlus} className={styles.icon} />
           </Button>
         </div>

@@ -1,4 +1,15 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
 
-// .root {
-// }
+.root {
+  .container {
+    @include container;
+    .reservation {
+      @include wrapper;
+      &__item {
+        margin: 0 $base-size;
+        padding: $base-size;
+      }
+    }
+  }
+}
