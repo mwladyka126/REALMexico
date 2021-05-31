@@ -26,36 +26,44 @@ const Component = ({ className }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
-        <h2>Your booking</h2>
+        <h2 className={styles.title}>Your booking</h2>
         <Paper elevation={3}>
           <Card>
             <Row className={styles.reservation}>
-              <Col xs="12" sm="3" className={styles.reservation__item}>
-                <h5>Your trip to Huasteca Potosina</h5>
-                <CardMedia
-                  className={styles.image}
-                  component="img"
-                  image="images/offers/IslaMujeres.jpg"
-                  title=""
-                />
+              <Col xs="12" sm="6" md="4" className={styles.reservation__item}>
+                <div className={styles.hero}>
+                  <h5>Your trip to Huasteca Potosina</h5>
+                  <CardMedia
+                    className={styles.image}
+                    component="img"
+                    image="images/offers/IslaMujeres.jpg"
+                    title=""
+                  />
+                </div>
               </Col>
-              <Col xs="12" sm="2">
-                From: <DatePicker />
+              <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
+                <div className={styles.date}>
+                  <b>From:</b> <DatePicker />
+                </div>
               </Col>
-              <Col xs="12" sm="4">
-                Days: <AmountCounter /> People: <AmountCounter />{" "}
+              <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
+                <div className={styles.counter}>
+                  <b>Days:</b>
+                  <AmountCounter className={styles.counter} /> <b>People:</b>
+                  <AmountCounter />
+                </div>
               </Col>
-              <Col xs="12" sm="1">
-                <p>Price:</p>
-                <p>xxx $</p>
+              <Col xs="12" sm="6" md="2" className={styles.reservation__item}>
+                <div className={styles.price}>
+                  <p>
+                    <b>Price:</b>
+                  </p>
+                  <p>xxx $</p>
+                </div>
               </Col>
             </Row>
-          </Card>
-        </Paper>
-        <Paper>
-          <Card>
-            <Row>
-              <Col xs="12">
+            <Row className={styles.message}>
+              <Col xs="12" className={styles.message__item}>
                 <TextField
                   className={styles.textfield}
                   id="outlined-multiline-static"
@@ -71,16 +79,17 @@ const Component = ({ className }) => {
         </Paper>
         <Paper>
           <Card>
-            <Row>
-              <Col xs="6">TOTAL PRICE: 800$</Col>
-              <Col xs="4">
-                {" "}
-                <Button variant="contained" className={styles.button}>
-                  Book it!
-                </Button>
+            <Row className={styles.summary}>
+              <Col xs="6" sm="7" className={styles.summary__item}>
+                <div className={styles.total}> TOTAL PRICE: 800$ </div>
               </Col>
-              <Col xs="2">
-                <FontAwesomeIcon icon={faTrash} className={styles.icon} />
+              <Col xs="6" sm="5" className={styles.summary__item}>
+                <div className={styles.buttons}>
+                  <Button variant="contained" className={styles.button}>
+                    Book it!
+                  </Button>
+                  <FontAwesomeIcon icon={faTrash} className={styles.icon} />
+                </div>
               </Col>
             </Row>
           </Card>

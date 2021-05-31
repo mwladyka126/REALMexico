@@ -2,13 +2,80 @@
 @import "../../../styles/mixins.scss";
 
 .root {
+  color: $color-text-dark;
   .container {
     @include container;
+    .title {
+      text-align: center;
+      padding: $base-size;
+    }
     .reservation {
       @include wrapper;
+      text-align: center;
+      color: $color-text-dark;
       &__item {
-        margin: 0 $base-size;
+        @include wrapper;
         padding: $base-size;
+        .hero {
+          margin: 0 auto;
+          .image {
+            @include image;
+            padding: 0 $base-size;
+          }
+        }
+        .date {
+          margin: 0 auto;
+        }
+        .counter {
+          margin: 0 auto;
+        }
+        .price {
+          margin: 0 auto;
+        }
+      }
+    }
+    .message {
+      margin: $base-size;
+      &__item {
+        @include wrapper;
+        .textfield {
+          margin: 0 auto;
+          width: 70%;
+          padding: $base-size;
+        }
+      }
+    }
+    .summary {
+      color: $color-text-dark;
+      &__item {
+        @include wrapper;
+        padding: $base-size;
+        .total {
+          margin: 0 auto;
+          font-size: $base-size * 1.5;
+          font-weight: bold;
+
+          padding: $base-size;
+        }
+        .buttons {
+          @include wrapper;
+          justify-content: center;
+
+          .button {
+            background-color: $color-background-color;
+            padding: $base-size $base-size * 2;
+            color: $color-text-light;
+            font-weight: bold;
+          }
+          .icon {
+            margin: $base-size * 2;
+            font-size: $base-size * 1.5;
+            &:hover {
+              transform: scale(1.5);
+              transition: $transition;
+            }
+          }
+        }
       }
     }
   }

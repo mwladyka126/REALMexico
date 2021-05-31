@@ -5,6 +5,7 @@
   .wrapper {
     @include wrapper;
     justify-content: flex-start;
+    flex-wrap: nowrap;
     .button {
       background-color: $color-background-color;
       color: $color-text-light;
