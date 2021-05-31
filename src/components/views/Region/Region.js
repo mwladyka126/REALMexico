@@ -47,35 +47,40 @@ const Component = ({ className, offers, match }) => {
       />
 
       <Row className={styles.offers}>
-        {offers.map((offer) => (
-          <Col xs="12" sm="6" md="4" key={offer.id}>
-            <Card className={styles.offer}>
-              <Link
-                to={`/offers/${regionName}/${offer.id}`}
-                className={styles.link}
-              >
-                <CardActionArea>
-                  <CardMedia
-                    className={styles.image}
-                    component="img"
-                    image={offer.image[0]}
-                    title={offer.title}
-                  />
-                  <CardContent className={styles.wrapper}>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      className={styles.name}
-                    >
-                      {offer.title}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Link>
-            </Card>
-          </Col>
-        ))}
+        {offers.map(
+          (offer) => (
+            offer.region.replace(" ", "").toLowerCase(),
+            (
+              <Col xs="12" sm="6" md="6" key={offer.id}>
+                <Card className={styles.offer}>
+                  <Link
+                    to={`/offers/${region}/${offer.id}`}
+                    className={styles.link}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        className={styles.image}
+                        component="img"
+                        image={offer.image[0]}
+                        title={offer.title}
+                      />
+                      <CardContent className={styles.wrapper}>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="h2"
+                          className={styles.name}
+                        >
+                          {offer.title}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Link>
+                </Card>
+              </Col>
+            )
+          )
+        )}
       </Row>
     </div>
   );

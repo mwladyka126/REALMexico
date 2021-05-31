@@ -17,6 +17,14 @@ import { getAllOffers } from "../../../redux/offersRedux.js";
 import styles from "./AllOffers.module.scss";
 
 const Component = ({ className, allOffers }) => {
+  function modifyArray(array) {
+    for (let el of array) {
+      const newName = el.region.replace(" ", "").toLowerCase();
+      el.region = newName;
+    }
+    return array;
+  }
+  const modified = modifyArray(allOffers);
   return (
     <div className={clsx(className, styles.root)}>
       <Hero
@@ -29,40 +37,35 @@ const Component = ({ className, allOffers }) => {
         link="/"
       />
       <Row>
-        {allOffers.map(
-          (offer) => (
-            offer.region.replace(" ", "").toLowerCase(),
-            (
-              <Col xs="12" sm="6" md="4" key={offer.id}>
-                <Card className={styles.offer}>
-                  <Link
-                    to={`/offers/${offer.region}/${offer.id}`}
-                    className={styles.link}
-                  >
-                    <CardActionArea>
-                      <CardMedia
-                        className={styles.image}
-                        component="img"
-                        image={offer.image[0]}
-                        title={offer.title}
-                      />
-                      <CardContent className={styles.wrapper}>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="h2"
-                          className={styles.name}
-                        >
-                          {offer.title}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Link>
-                </Card>
-              </Col>
-            )
-          )
-        )}
+        {modified.map((offer) => (
+          <Col xs="12" sm="6" md="4" key={offer.id}>
+            <Card className={styles.offer}>
+              <Link
+                to={`/offers/${offer.region}/${offer.id}`}
+                className={styles.link}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    className={styles.image}
+                    component="img"
+                    image={offer.image[0]}
+                    title={offer.title}
+                  />
+                  <CardContent className={styles.wrapper}>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      className={styles.name}
+                    >
+                      {offer.title}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Link>
+            </Card>
+          </Col>
+        ))}
       </Row>
     </div>
   );
