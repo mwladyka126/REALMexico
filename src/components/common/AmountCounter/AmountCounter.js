@@ -9,8 +9,8 @@ import clsx from "clsx";
 
 import styles from "./AmountCounter.module.scss";
 
-const Component = ({ className, quantity, maxNumber }) => {
-  const [count, setCount] = useState(0);
+const Component = ({ className, quantity, maxNumber, defaultValue }) => {
+  const [count, setCount] = useState(defaultValue || 0);
 
   const handleIncrease = (quantity) => {
     if (quantity >= 0) {

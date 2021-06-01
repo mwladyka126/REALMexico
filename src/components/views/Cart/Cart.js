@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "reactstrap";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -17,12 +13,13 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import clsx from "clsx";
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from "react-redux";
+import { getFromCart } from "../../../redux/offersRedux.js";
 
 import styles from "./Cart.module.scss";
 
-const Component = ({ className }) => {
+const Component = ({ className, offerInCart }) => {
+  console.log(offerInCart);
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
@@ -32,7 +29,7 @@ const Component = ({ className }) => {
             <Row className={styles.reservation}>
               <Col xs="12" sm="6" md="4" className={styles.reservation__item}>
                 <div className={styles.hero}>
-                  <h5>Your trip to Huasteca Potosina</h5>
+                  <h5>Your trip to {offerInCart.title}</h5>
                   <CardMedia
                     className={styles.image}
                     component="img"
@@ -43,14 +40,21 @@ const Component = ({ className }) => {
               </Col>
               <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
                 <div className={styles.date}>
-                  <b>From:</b> <DatePicker />
+                  <b>From:</b> <DatePicker defaultDate={offerInCart.start} />
                 </div>
               </Col>
               <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
                 <div className={styles.counter}>
                   <b>Days:</b>
-                  <AmountCounter className={styles.counter} /> <b>People:</b>
-                  <AmountCounter />
+                  <AmountCounter
+                    maxNumber={30}
+                    defaultValue={offerInCart.days}
+                  />{" "}
+                  <b>People:</b>
+                  <AmountCounter
+                    maxNumber={20}
+                    defaultValue={offerInCart.people}
+                  />
                 </div>
               </Col>
               <Col xs="12" sm="6" md="2" className={styles.reservation__item}>
@@ -58,7 +62,7 @@ const Component = ({ className }) => {
                   <p>
                     <b>Price:</b>
                   </p>
-                  <p>xxx $</p>
+                  <p>{offerInCart.price}</p>
                 </div>
               </Col>
             </Row>
@@ -70,7 +74,7 @@ const Component = ({ className }) => {
                   label="Write us your ideas"
                   multiline
                   rows={2}
-                  defaultValue=""
+                  defaultValue={offerInCart.message}
                   variant="outlined"
                 />
               </Col>
@@ -81,7 +85,10 @@ const Component = ({ className }) => {
           <Card>
             <Row className={styles.summary}>
               <Col xs="6" sm="7" className={styles.summary__item}>
-                <div className={styles.total}> TOTAL PRICE: 800$ </div>
+                <div className={styles.total}>
+                  {" "}
+                  TOTAL PRICE: {offerInCart.totalPrice}{" "}
+                </div>
               </Col>
               <Col xs="6" sm="5" className={styles.summary__item}>
                 <div className={styles.buttons}>
@@ -104,18 +111,18 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = (state) => ({
+  offerInCart: getFromCart(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Cart,
-  // Container as Cart,
+  //Component as Cart,
+  Container as Cart,
   Component as CartComponent,
 };

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import { Hero } from "../../common/Hero/Hero";
 import { Carousel } from "../../features/Carousel/Carousel";
+import Paper from "@material-ui/core/Paper";
 
 import clsx from "clsx";
 
@@ -31,25 +32,28 @@ const Component = ({ className, offer }) => {
               <h3>Highlights</h3>
               <p>{offer.description}</p>
             </div>
-            <Row>
-              <Col>
-                <div className={styles.photoWrapper}>
-                  <img src={offer.image[0]} alt={offer.title} />
-                </div>
-              </Col>
-              <Col>
-                <div className={styles.photoWrapper}>
-                  <img src={offer.image[1]} alt={offer.title} />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <div className={styles.photoWrapper}>
-                  <img src={offer.image[2]} alt={offer.title} />
-                </div>
-              </Col>
-            </Row>
+            <Paper>
+              <Row>
+                <Col xs="12" sm="6">
+                  <div className={styles.photoWrapper}>
+                    <img src={offer.image[0]} alt={offer.title} />
+                  </div>
+                </Col>
+                <Col xs="12" sm="6">
+                  <div className={styles.photoWrapper}>
+                    <img src={offer.image[1]} alt={offer.title} />
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="12">
+                  <div className={styles.photoWrapper}>
+                    <img src={offer.image[2]} alt={offer.title} />
+                  </div>
+                </Col>
+              </Row>
+            </Paper>
+
             <Hero
               title={`Discover ${offer.region} region`}
               buttonDesc={`${offer.region} trips`}

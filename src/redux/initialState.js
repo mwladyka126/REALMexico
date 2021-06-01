@@ -136,6 +136,19 @@ export const initialState = {
       active: false,
       error: false,
     },
+    cart: [
+      {
+        id: "1",
+        title: "Huasetca",
+        image: "images/offers/IslaMujeres.jpg",
+        days: 3,
+        people: 2,
+        start: "11/09/2021",
+        price: "300",
+        totalPrice: "900",
+        message: "blalalal",
+      },
+    ],
   },
   regions: {
     data: [
