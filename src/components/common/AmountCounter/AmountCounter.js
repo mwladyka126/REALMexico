@@ -9,50 +9,64 @@ import clsx from "clsx";
 
 import styles from "./AmountCounter.module.scss";
 
-const Component = ({ className, quantity, maxNumber, defaultValue }) => {
+const Component = ({ className, maxNumber, defaultValue, setAmount }) => {
   const [count, setCount] = useState(defaultValue || 0);
 
-  const handleIncrease = (quantity) => {
-    if (quantity >= 0) {
-      setCount(quantity + 1);
+  const finalAmount = (amount) => {
+    if (amount === undefined) {
+      return 0;
+    } else if (amount < 0) {
+      return 0;
+    } else if (amount > parseInt(maxNumber)) {
+      setCount(maxNumber);
+      return maxNumber;
+    } else {
+      return amount;
     }
   };
 
-  const handleDecrease = (quantity) => {
-    if (quantity > 0) {
-      setCount(quantity - 1);
-    }
+  const handleIncrease = () => {
+    setCount(parseInt(count) + 1);
+    setAmount(parseInt(count) + 1);
   };
 
-  const handleChange = (value) => {
-    if (quantity > 0) {
-      setCount(value);
-    } else if (quantity === 0) {
-      setCount(value);
-    }
+  const handleDecrease = () => {
+    setCount(Math.max(count - 1, 0));
+    setAmount(Math.max(count - 1, 0));
+    console.log("decrese", count);
+  };
+
+  const handleChange = (event) => {
+    console.log("event", event);
+    setCount(event);
+    setAmount(event);
   };
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.wrapper}>
         <Button
           variant="contained"
-          onClick={() => handleDecrease(count)}
+          onClick={() => handleDecrease()}
           disabled={parseInt(count) <= 0 ? true : false}
           className={styles.button}
+          aria-label="reduce"
         >
           <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
         </Button>
         <input
-          onChange={(e) => handleChange(parseInt(e.target.value))}
           type="text"
-          value={count}
+          min="0"
+          max={maxNumber}
+          value={finalAmount(count)}
+          onChange={(e) => handleChange(e.target.value)}
           className={styles.input}
         ></input>
         <Button
           variant="contained"
-          onClick={() => handleIncrease(count)}
+          onClick={() => handleIncrease()}
           disabled={parseInt(count) >= maxNumber ? true : false}
           className={styles.button}
+          aria-label="add"
         >
           <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
         </Button>
