@@ -1,0 +1,56 @@
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
+
+.root {
+  color: $color-text-dark;
+  .container {
+    .title {
+      text-align: center;
+      padding: $base-size;
+    }
+    .reservation {
+      @include wrapper;
+      text-align: center;
+      color: $color-text-dark;
+      &__item {
+        @include wrapper;
+        padding: $base-size;
+        .hero {
+          margin: 0 auto;
+          .image {
+            @include image;
+            padding: 0 $base-size;
+          }
+        }
+        .date {
+          margin: 0 auto;
+        }
+        .counter {
+          margin: 0 auto;
+        }
+        .price {
+          margin: 0 auto;
+        }
+        .icon {
+          margin: $base-size * 2;
+          font-size: $base-size * 1.5;
+          &:hover {
+            transform: scale(1.5);
+            transition: $transition;
+          }
+        }
+      }
+    }
+    .message {
+      margin: $base-size;
+      &__item {
+        @include wrapper;
+        .textfield {
+          margin: 0 auto;
+          width: 80%;
+          padding: $base-size;
+        }
+      }
+    }
+  }
+}

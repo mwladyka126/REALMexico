@@ -28,6 +28,7 @@ const Component = ({ className, maxNumber, defaultValue, setAmount }) => {
   const handleIncrease = () => {
     setCount(parseInt(count) + 1);
     setAmount(parseInt(count) + 1);
+    console.log("increse", count);
   };
 
   const handleDecrease = () => {
@@ -58,7 +59,7 @@ const Component = ({ className, maxNumber, defaultValue, setAmount }) => {
           min="0"
           max={maxNumber}
           value={finalAmount(count)}
-          onChange={(e) => handleChange(e.target.value)}
+          onChange={(event) => handleChange(event.target.value)}
           className={styles.input}
         ></input>
         <Button

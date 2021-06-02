@@ -35,14 +35,13 @@ class Component extends React.Component {
 
     this.setState({ cart: { ...cart, people: amount } });
     console.log(cart);
-    this.setTotalPrice();
   };
 
   setDays = (amount) => {
     const { cart } = this.state;
 
     this.setState({ cart: { ...cart, days: parseInt(amount) } });
-    this.setTotalPrice();
+
     console.log(cart);
   };
 

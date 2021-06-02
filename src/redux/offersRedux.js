@@ -7,7 +7,7 @@ export const getOffersByRegion = ({ offers }, regionName) =>
     const nameSmall = offer.region.replace(" ", "").toLowerCase();
     return nameSmall === regionName;
   });
-export const getFromCart = ({ offers }) => offers.cart[0];
+export const getFromCart = ({ offers }) => offers.cart;
 
 /* action name creator */
 const reducerName = "offers";
