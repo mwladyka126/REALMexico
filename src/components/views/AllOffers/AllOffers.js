@@ -17,14 +17,6 @@ import { getAllOffers } from "../../../redux/offersRedux.js";
 import styles from "./AllOffers.module.scss";
 
 const Component = ({ className, allOffers }) => {
-  function modifyArray(array) {
-    for (let el of array) {
-      const newName = el.region.replace(" ", "").toLowerCase();
-      el.region = newName;
-    }
-    return array;
-  }
-  const modified = modifyArray(allOffers);
   return (
     <div className={clsx(className, styles.root)}>
       <Hero
@@ -37,11 +29,11 @@ const Component = ({ className, allOffers }) => {
         link="/"
       />
       <Row>
-        {modified.map((offer) => (
+        {allOffers.map((offer) => (
           <Col xs="12" sm="6" md="4" key={offer.id}>
             <Card className={styles.offer}>
               <Link
-                to={`/offers/${offer.region}/${offer.id}`}
+                to={`/offers/${offer.regionId}/${offer.id}`}
                 className={styles.link}
               >
                 <CardActionArea>
@@ -71,7 +63,7 @@ const Component = ({ className, allOffers }) => {
   );
 };
 Component.propTypes = {
-  children: PropTypes.node,
+  allOffers: PropTypes.array,
   className: PropTypes.string,
 };
 

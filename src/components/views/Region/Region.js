@@ -17,17 +17,8 @@ import { getOffersByRegion } from "../../../redux/offersRedux.js";
 
 import styles from "./Region.module.scss";
 const Component = ({ className, offers, match }) => {
-  const regionName = match.params.regionName;
+  const regionId = match.params.regionId;
   const region = offers.map((el) => el.region)[0];
-
-  function modifyArray(array) {
-    for (let el of array) {
-      const newName = el.region.replace(" ", "").toLowerCase();
-      el.region = newName;
-    }
-    return array;
-  }
-  const modified = modifyArray(offers);
 
   if (offers.length === 0) {
     return (
@@ -56,11 +47,11 @@ const Component = ({ className, offers, match }) => {
       />
 
       <Row className={styles.offers}>
-        {modified.map((offer) => (
+        {offers.map((offer) => (
           <Col xs="12" sm="6" md="6" key={offer.id}>
             <Card className={styles.offer}>
               <Link
-                to={`/offers/${region}/${offer.id}`}
+                to={`/offers/${regionId}/${offer.id}`}
                 className={styles.link}
               >
                 <CardActionArea>
@@ -98,7 +89,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-  offers: getOffersByRegion(state, props.match.params.regionName),
+  offers: getOffersByRegion(state, props.match.params.regionId),
 });
 
 // const mapDispatchToProps = dispatch => ({

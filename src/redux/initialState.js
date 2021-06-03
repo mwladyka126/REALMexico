@@ -4,6 +4,7 @@ export const initialState = {
       {
         id: "1",
         region: "Riviera Maya",
+        regionId: "rivieramaya",
         title: "The most beautiful beaches",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -17,6 +18,7 @@ export const initialState = {
       {
         id: "2",
         region: "Oaxaca",
+        regionId: "oaxaca",
         title: "The heart of Mexican culture",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -30,6 +32,7 @@ export const initialState = {
       {
         id: "3",
         region: "Chiapas",
+        regionId: "chiapas",
         title: "Around San Cristobal",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -43,6 +46,7 @@ export const initialState = {
       {
         id: "4",
         region: "Jalisco",
+        regionId: "jalisco",
         title: "Around Guadalajara",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -56,6 +60,7 @@ export const initialState = {
       {
         id: "5",
         region: "CDMX",
+        regionId: "cdmx",
         title: "Amazig capital",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -69,6 +74,7 @@ export const initialState = {
       {
         id: "6",
         region: "Riviera Maya",
+        regionId: "rivieramaya",
         title: "Amazing Bacalar",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -82,6 +88,7 @@ export const initialState = {
       {
         id: "7",
         region: "Oaxaca",
+        regionId: "oaxaca",
         title: "The heart of Mexican culture",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -95,6 +102,7 @@ export const initialState = {
       {
         id: "8",
         region: "Chiapas",
+        regionId: "chiapas",
         title: "Chiapas",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -108,6 +116,7 @@ export const initialState = {
       {
         id: "9",
         region: "Jalisco",
+        regionId: "jalisco",
         title: "Tequila",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -121,6 +130,7 @@ export const initialState = {
       {
         id: "10",
         region: "CDMX",
+        regionId: "cdmx",
         title: "Ciudad de Mexico",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -140,14 +150,40 @@ export const initialState = {
   },
   regions: {
     data: [
-      { id: "1", name: "Riviera Maya", image: "/images/offers/tulum.jpg" },
-      { id: "2", name: "Oaxaca", image: "/images/offers/oaxaca.jpg" },
-      { id: "3", name: "Chiapas", image: "/images/offers/Palenque2.jpg" },
-      { id: "4", name: "Jalisco", image: "/images/offers/tequila2.jpg" },
-      { id: "5", name: "Ciudad de Mexico", image: "/images/offers/CDMX.jpg" },
+      {
+        id: "1",
+        name: "Riviera Maya",
+        regionId: "rivieramaya",
+        image: "/images/offers/tulum.jpg",
+      },
+      {
+        id: "2",
+        name: "Oaxaca",
+        regionId: "oaxaca",
+        image: "/images/offers/oaxaca.jpg",
+      },
+      {
+        id: "3",
+        name: "Chiapas",
+        regionId: "chiapas",
+        image: "/images/offers/Palenque2.jpg",
+      },
+      {
+        id: "4",
+        name: "Jalisco",
+        regionId: "jalisco",
+        image: "/images/offers/tequila2.jpg",
+      },
+      {
+        id: "5",
+        name: "Ciudad de Mexico",
+        regionId: "cdmx",
+        image: "/images/offers/CDMX.jpg",
+      },
       {
         id: "6",
         name: "Huasteca Potosina",
+        regionId: "huastecapotosina",
         image: "/images/offers/Huasteca2.jpg",
       },
     ],

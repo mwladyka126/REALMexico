@@ -18,15 +18,6 @@ import { getAllRegions } from "../../../redux/regionsRedux.js";
 import styles from "./RegionsOverview.module.scss";
 
 const Component = ({ className, regions }) => {
-  function modifyArray(array) {
-    for (let el of array) {
-      const newName = el.name.replace(" ", "").toLowerCase();
-      el.name = newName;
-    }
-    return array;
-  }
-  const modified = modifyArray(regions);
-
   return (
     <div className={clsx(className, styles.root)}>
       <Hero
@@ -40,10 +31,10 @@ const Component = ({ className, regions }) => {
       />
 
       <Row className={styles.offers}>
-        {modified.map((region) => (
+        {regions.map((region) => (
           <Col xs="12" sm="6" md="4" key={region.id}>
             <Card className={styles.offer}>
-              <Link to={`/offers/${region.name}`} className={styles.link}>
+              <Link to={`/offers/${region.regionId}`} className={styles.link}>
                 <CardActionArea>
                   <CardMedia
                     className={styles.image}

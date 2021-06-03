@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 import { Row, Col } from "reactstrap";
 import { Hero } from "../../common/Hero/Hero";
-import { Carousel } from "../../features/Carousel/Carousel";
 import Paper from "@material-ui/core/Paper";
 
 import clsx from "clsx";
@@ -51,7 +49,7 @@ class Component extends React.Component {
   };
   render() {
     const { className, offer, addToCart } = this.props;
-    const regionId = offer.region.replace(" ", "").toLowerCase();
+
     return (
       <div className={clsx(className, styles.root)}>
         <Row>
@@ -95,7 +93,7 @@ class Component extends React.Component {
           honeymoon itineraries, adventure trips, all are flexible and will
           adapt to your needs and expectations. Get inspired and trust our team
           of local experts to create your own tailor-made trip"
-                link={`/offers/${regionId}`}
+                link={`/offers/${offer.regionId}`}
               />
             </div>
           </Col>

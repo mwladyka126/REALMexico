@@ -10,7 +10,7 @@ import clsx from "clsx";
 
 import styles from "./DatePicker.module.scss";
 
-const Component = ({ className, children, setDate, defaultDate }) => {
+const Component = ({ className, setDate, defaultDate }) => {
   const [selectedDate, setSelectedDate] = React.useState(
     defaultDate || new Date()
   );
@@ -40,8 +40,8 @@ const Component = ({ className, children, setDate, defaultDate }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  defaultDate: PropTypes.string,
   setDate: PropTypes.func,
 };
 

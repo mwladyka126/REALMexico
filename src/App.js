@@ -35,10 +35,10 @@ const App = () => (
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/offers" component={AllOffers} />
-              <Route exact path="/offers/:regionName" component={Region} />
+              <Route exact path="/offers/:regionId" component={Region} />
               <Route
                 exact
-                path="/offers/:regionName/:offerId"
+                path="/offers/:regionId/:offerId"
                 component={OfferPage}
               />
               <Route exact path="/cart" component={Cart} />

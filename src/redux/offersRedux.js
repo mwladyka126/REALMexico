@@ -2,11 +2,8 @@
 export const getAllOffers = ({ offers }) => offers.data;
 export const getOneOffer = ({ offers }, offerId) =>
   offers.data.find((offer) => offer.id === offerId);
-export const getOffersByRegion = ({ offers }, regionName) =>
-  offers.data.filter((offer) => {
-    const nameSmall = offer.region.replace(" ", "").toLowerCase();
-    return nameSmall === regionName;
-  });
+export const getOffersByRegion = ({ offers }, regionId) =>
+  offers.data.filter((offer) => offer.regionId === regionId);
 export const getFromCart = ({ offers }) => offers.cart;
 export const countInCart = ({ offers }) => offers.cart.length;
 
@@ -86,7 +83,7 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         cart: [
-          ...statePart.cart.filter((item) => item.id != action.payload.id),
+          ...statePart.cart.filter((item) => item.id !== action.payload.id),
         ],
       };
     }
