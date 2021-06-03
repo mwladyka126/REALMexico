@@ -5,14 +5,13 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AmountCounter } from "../../common/AmountCounter/AmountCounter";
 import { DatePicker } from "../../common/DatePicker/DatePicker";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import { connect } from "react-redux";
-import { editInCart } from "../../../redux/offersRedux.js";
+import { editInCart, removeFromCart } from "../../../redux/offersRedux.js";
 
 import clsx from "clsx";
 
@@ -72,6 +71,14 @@ class Component extends React.Component {
     });
     editInCart({ ...cart, start: date.toLocaleDateString("en-US") });
   };
+
+  removeItem = () => {
+    const { cart } = this.state;
+    const { removeFromCart } = this.props;
+
+    removeFromCart(cart);
+  };
+
   render() {
     const {
       className,
@@ -128,7 +135,11 @@ class Component extends React.Component {
                       <b>Price:</b>
                     </p>
                     <p>{totalPrice} EUR</p>
-                    <FontAwesomeIcon icon={faTrash} className={styles.icon} />
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      className={styles.icon}
+                      onClick={this.removeItem}
+                    />
                   </div>
                 </Col>
               </Row>
@@ -163,6 +174,7 @@ const mapStateToProps = (state, props) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   editInCart: (value) => dispatch(editInCart(value)),
+  removeFromCart: (value) => dispatch(removeFromCart(value)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

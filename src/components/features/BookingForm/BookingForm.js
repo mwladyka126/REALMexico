@@ -25,7 +25,7 @@ class Component extends React.Component {
       price: this.props.offer.price,
       people: 0,
       days: 0,
-      start: "",
+      start: new Date().toLocaleDateString("en-US"),
       totalPrice: "",
       message: "",
     },

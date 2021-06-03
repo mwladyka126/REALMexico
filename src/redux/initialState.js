@@ -136,30 +136,7 @@ export const initialState = {
       active: false,
       error: false,
     },
-    cart: [
-      {
-        id: "1",
-        title: "Huasetca",
-        image: "images/offers/IslaMujeres.jpg",
-        days: 3,
-        people: 2,
-        start: "11/09/2021",
-        price: "300",
-        totalPrice: "900",
-        message: "blalalal",
-      },
-      {
-        id: "2",
-        title: "CDMX",
-        image: "images/offers/oaxaca.jpg",
-        days: 3,
-        people: 2,
-        start: "11/09/2021",
-        price: "800",
-        totalPrice: "900",
-        message: "your message",
-      },
-    ],
+    cart: [],
   },
   regions: {
     data: [
