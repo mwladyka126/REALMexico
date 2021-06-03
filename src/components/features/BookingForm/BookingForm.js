@@ -25,7 +25,7 @@ class Component extends React.Component {
       price: this.props.offer.price,
       people: 0,
       days: 0,
-      start: "11/09/2021",
+      start: "",
       totalPrice: "",
       message: "",
     },
@@ -66,7 +66,11 @@ class Component extends React.Component {
     const { addToCart } = this.props;
 
     cart.totalPrice = cart.price * cart.people * cart.days;
-    addToCart(cart);
+    if (cart.people > 0 && cart.days > 0) {
+      addToCart(cart);
+    } else {
+      alert("you have to choose the amount of days and people");
+    }
   };
 
   render() {
@@ -143,6 +147,7 @@ class Component extends React.Component {
                 onClick={this.placeInCart}
                 component={Link}
                 to={"/cart"}
+                disabled={cart.people > 0 && cart.days > 0 ? false : true}
               >
                 Add to cart
                 <FontAwesomeIcon icon={faCartPlus} className={styles.icon} />

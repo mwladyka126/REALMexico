@@ -11,11 +11,67 @@ import { AmountCounter } from "../../common/AmountCounter/AmountCounter";
 import { DatePicker } from "../../common/DatePicker/DatePicker";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+import { connect } from "react-redux";
+import { editInCart } from "../../../redux/offersRedux.js";
+
 import clsx from "clsx";
 
 import styles from "./CartItem.module.scss";
 
 class Component extends React.Component {
+  state = {
+    cart: {
+      id: this.props.id,
+      days: this.props.days,
+      people: this.props.people,
+      message: this.props.message,
+      start: this.props.start,
+      title: this.props.title,
+      image: this.props.image,
+      price: this.props.price,
+      totalPrice: this.props.totalPrice,
+    },
+  };
+
+  setPeople = (amount) => {
+    const { cart } = this.state;
+    const { editInCart } = this.props;
+
+    this.setState({ cart: { ...cart, people: parseInt(amount) } });
+    const newPrice = cart.price * cart.people * cart.days;
+    editInCart({ ...cart, people: parseInt(amount), totalPrice: newPrice });
+  };
+
+  setDays = (amount) => {
+    const { cart } = this.state;
+    const { editInCart } = this.props;
+
+    this.setState({ cart: { ...cart, days: parseInt(amount) } });
+    const newPrice = cart.price * cart.people * cart.days;
+    editInCart({ ...cart, days: parseInt(amount), totalPrice: newPrice });
+  };
+
+  handleChange = (event) => {
+    const { cart } = this.state;
+    const { editInCart } = this.props;
+
+    this.setState({
+      cart: { ...cart, [event.target.name]: event.target.value },
+    });
+    editInCart({ ...cart, [event.target.name]: event.target.value });
+  };
+  setDate = (date) => {
+    const { cart } = this.state;
+    const { editInCart } = this.props;
+
+    this.setState({
+      cart: {
+        ...cart,
+        start: date.toLocaleDateString("en-US"),
+      },
+    });
+    editInCart({ ...cart, start: date.toLocaleDateString("en-US") });
+  };
   render() {
     const {
       className,
@@ -46,15 +102,24 @@ class Component extends React.Component {
                 </Col>
                 <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
                   <div className={styles.date}>
-                    <b>From:</b> <DatePicker defaultDate={start} />
+                    <b>From:</b>{" "}
+                    <DatePicker defaultDate={start} setDate={this.setDate} />
                   </div>
                 </Col>
                 <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
                   <div className={styles.counter}>
                     <b>Days:</b>
-                    <AmountCounter maxNumber={30} defaultValue={days} />{" "}
+                    <AmountCounter
+                      maxNumber={30}
+                      defaultValue={days}
+                      setAmount={this.setDays}
+                    />{" "}
                     <b>People:</b>
-                    <AmountCounter maxNumber={20} defaultValue={people} />
+                    <AmountCounter
+                      maxNumber={20}
+                      defaultValue={people}
+                      setAmount={this.setPeople}
+                    />
                   </div>
                 </Col>
                 <Col xs="12" sm="6" md="2" className={styles.reservation__item}>
@@ -76,6 +141,8 @@ class Component extends React.Component {
                     multiline
                     rows={2}
                     defaultValue={message}
+                    name="message"
+                    onChange={this.handleChange}
                     variant="outlined"
                   />
                 </Col>
@@ -92,9 +159,16 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
+const mapStateToProps = (state, props) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  editInCart: (value) => dispatch(editInCart(value)),
+});
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as CartItem,
-  //Container as CartItem,
+  //Component as CartItem,
+  Container as CartItem,
   Component as CartItemComponent,
 };

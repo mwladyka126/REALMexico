@@ -8,6 +8,7 @@ export const getOffersByRegion = ({ offers }, regionName) =>
     return nameSmall === regionName;
   });
 export const getFromCart = ({ offers }) => offers.cart;
+export const countInCart = ({ offers }) => offers.cart.length;
 
 /* action name creator */
 const reducerName = "offers";
@@ -18,13 +19,14 @@ const FETCH_START = createActionName("FETCH_START");
 const FETCH_SUCCESS = createActionName("FETCH_SUCCESS");
 const FETCH_ERROR = createActionName("FETCH_ERROR");
 const ADD_TO_CART = createActionName("ADD_TO_CART");
+const EDIT_IN_CART = createActionName("EDIT_IN_CART");
 
 /* action creators */
 export const fetchStarted = (payload) => ({ payload, type: FETCH_START });
 export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
 export const addToCart = (payload) => ({ payload, type: ADD_TO_CART });
-
+export const editInCart = (payload) => ({ payload, type: EDIT_IN_CART });
 /* thunk creators */
 
 /* reducer */
@@ -62,6 +64,16 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         cart: [...statePart.cart, action.payload],
+      };
+    }
+    case EDIT_IN_CART: {
+      return {
+        ...statePart,
+        cart: [
+          ...statePart.cart.map((item) =>
+            item.id === action.payload.id ? action.payload : item
+          ),
+        ],
       };
     }
     default:
