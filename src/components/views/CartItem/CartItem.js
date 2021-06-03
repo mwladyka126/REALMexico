@@ -17,8 +17,16 @@ import styles from "./CartItem.module.scss";
 
 class Component extends React.Component {
   render() {
-    const { className, title, image, start, days, people, price, message } =
-      this.props;
+    const {
+      className,
+      title,
+      image,
+      start,
+      days,
+      people,
+      totalPrice,
+      message,
+    } = this.props;
     return (
       <div className={clsx(className, styles.root)}>
         <div className={styles.container}>
@@ -27,7 +35,7 @@ class Component extends React.Component {
               <Row className={styles.reservation}>
                 <Col xs="12" sm="6" md="4" className={styles.reservation__item}>
                   <div className={styles.hero}>
-                    <h5>Your trip to {title}</h5>
+                    <h5>Your trip: {title}</h5>
                     <CardMedia
                       className={styles.image}
                       component="img"
@@ -54,7 +62,7 @@ class Component extends React.Component {
                     <p>
                       <b>Price:</b>
                     </p>
-                    <p>{price}</p>
+                    <p>{totalPrice} EUR</p>
                     <FontAwesomeIcon icon={faTrash} className={styles.icon} />
                   </div>
                 </Col>

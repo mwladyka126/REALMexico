@@ -28,17 +28,14 @@ const Component = ({ className, maxNumber, defaultValue, setAmount }) => {
   const handleIncrease = () => {
     setCount(parseInt(count) + 1);
     setAmount(parseInt(count) + 1);
-    console.log("increse", count);
   };
 
   const handleDecrease = () => {
     setCount(Math.max(count - 1, 0));
     setAmount(Math.max(count - 1, 0));
-    console.log("decrese", count);
   };
 
   const handleChange = (event) => {
-    console.log("event", event);
     setCount(event);
     setAmount(event);
   };

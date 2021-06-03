@@ -23,7 +23,11 @@ const Component = ({ className, cart }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Your booking</h2>
+        {cart.length > 0 ? (
+          <h2 className={styles.title}>Your booking</h2>
+        ) : (
+          <h2 className={styles.title}>Your cart is empty!</h2>
+        )}
         {cart.map((item) => (
           <CartItem {...item} />
         ))}

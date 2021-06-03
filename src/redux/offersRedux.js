@@ -61,7 +61,7 @@ export const reducer = (statePart = [], action = {}) => {
     case ADD_TO_CART: {
       return {
         ...statePart,
-        cart: action.payload,
+        cart: [...statePart.cart, action.payload],
       };
     }
     default:

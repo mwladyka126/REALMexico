@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -20,12 +21,12 @@ class Component extends React.Component {
     cart: {
       id: this.props.offer.id,
       title: this.props.offer.title,
-      image: this.props.offer.image,
+      image: this.props.offer.image[0],
       price: this.props.offer.price,
       people: 0,
       days: 0,
-      start: "",
-      total: "",
+      start: "11/09/2021",
+      totalPrice: "",
       message: "",
     },
   };
@@ -33,32 +34,45 @@ class Component extends React.Component {
   setPeople = (amount) => {
     const { cart } = this.state;
 
-    this.setState({ cart: { ...cart, people: amount } });
-    console.log(cart);
+    this.setState({ cart: { ...cart, people: parseInt(amount) } });
   };
 
   setDays = (amount) => {
     const { cart } = this.state;
 
     this.setState({ cart: { ...cart, days: parseInt(amount) } });
-
-    console.log(cart);
   };
 
-  setTotalPrice = () => {
+  handleChange = (event) => {
     const { cart } = this.state;
-    const total = cart.price * cart.people + cart.price * cart.days;
-    this.setState({ cart: { ...cart, total } });
+
+    this.setState({
+      cart: { ...cart, [event.target.name]: event.target.value },
+    });
+  };
+  setDate = (date) => {
+    const { cart } = this.state;
+
+    this.setState({
+      cart: {
+        ...cart,
+        start: date.toLocaleDateString("en-US"),
+      },
+    });
   };
 
   placeInCart = (event) => {
     const { cart } = this.state;
     const { addToCart } = this.props;
 
+    cart.totalPrice = cart.price * cart.people * cart.days;
     addToCart(cart);
   };
+
   render() {
-    const { className, offer, addToCart } = this.props;
+    const { className, offer } = this.props;
+    const { cart } = this.state;
+    console.log(cart);
     return (
       <div className={clsx(className, styles.root)}>
         <Card className={styles.booking}>
@@ -76,7 +90,7 @@ class Component extends React.Component {
               <h3 className={styles.title}>Fill the booking form</h3>
             </div>
             <div className={styles.booking__item}>
-              <p>Start day: </p> <DatePicker />
+              <p>Start day: </p> <DatePicker setDate={this.setDate} />
             </div>
             <div className={styles.booking__item}>
               <Tooltip title="for more then 30 days, contact us">
@@ -104,21 +118,32 @@ class Component extends React.Component {
             </div>
             <div className={styles.booking__item}>
               <p>Price: </p>
-              <p>{offer.price}</p>
+              <p>{offer.price} EUR</p>
             </div>
             <div className={styles.booking__item}>
               <p>Total price: </p>
-              <p>600</p>
+              <p>{cart.price * cart.days * cart.people}</p>
             </div>
             <div className={styles.booking__item}>
               <p className={styles.subtitle}>
                 Do you have any travel ideas? Tell us what you have in mind so
                 we can help you complete a perfect itinerary!
               </p>
-              <textarea rows="6" className={styles.textarea}></textarea>
+              <textarea
+                rows="6"
+                className={styles.textarea}
+                name="message"
+                onChange={this.handleChange}
+              ></textarea>
             </div>
             <div className={styles.booking__item}>
-              <Button variant="contained" className={styles.button}>
+              <Button
+                variant="contained"
+                className={styles.button}
+                onClick={this.placeInCart}
+                component={Link}
+                to={"/cart"}
+              >
                 Add to cart
                 <FontAwesomeIcon icon={faCartPlus} className={styles.icon} />
               </Button>

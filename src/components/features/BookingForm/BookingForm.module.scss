@@ -24,6 +24,10 @@
         padding: $base-size;
         color: $color-text-light;
         font-family: bold;
+        &:hover {
+          transform: scale(1.2);
+          transition: $transition;
+        }
         .icon {
           font-size: $base-size * 2;
         }
