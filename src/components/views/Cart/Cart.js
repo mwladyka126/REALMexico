@@ -24,7 +24,7 @@ const Component = ({ className, cart }) => {
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
         {cart.length > 0 ? (
-          <h2 className={styles.title}>Your booking</h2>
+          <h2 className={styles.title}>Proccess your booking</h2>
         ) : (
           <h2 className={styles.title}>Your cart is empty!</h2>
         )}

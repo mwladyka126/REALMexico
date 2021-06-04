@@ -66,23 +66,23 @@ const Component = ({ className, children }) => (
             <FontAwesomeIcon icon={faMapMarkedAlt} className={styles.icon} />
             <p>On social media</p>
             <div>
-              <Link href="#">
+              <Link to={`#`}>
                 <FontAwesomeIcon
                   icon={faFacebookF}
                   href="#"
                   className={styles.icon}
                 />
               </Link>
-              <Link href="#">
+              <Link to={`#`}>
                 <FontAwesomeIcon icon={faTwitter} className={styles.icon} />
               </Link>
-              <Link href="#">
+              <Link to={`#`}>
                 <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
               </Link>
-              <Link href="#">
+              <Link to={`#`}>
                 <FontAwesomeIcon icon={faPinterest} className={styles.icon} />
               </Link>
-              <Link href="#">
+              <Link to={`#`}>
                 <FontAwesomeIcon icon={faGooglePlusG} className={styles.icon} />
               </Link>
             </div>
