@@ -12,6 +12,7 @@ import { getFromCart } from "../../../redux/offersRedux.js";
 
 import styles from "./Cart.module.scss";
 import { CartItem } from "../CartItem/CartItem";
+import { Register } from "../Register/Register";
 
 const Component = ({ className, cart }) => {
   const totalPrice = (cart) => {
@@ -20,6 +21,11 @@ const Component = ({ className, cart }) => {
       return mapByPrice.reduce((prev, next) => prev + next);
     }
   };
+  const [open, setOpen] = React.useState(false);
+  const showRegister = () => {
+    setOpen(true);
+  };
+
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
@@ -32,23 +38,39 @@ const Component = ({ className, cart }) => {
           <CartItem {...item} />
         ))}
         {cart.length > 0 ? (
-          <Paper>
+          <Paper elevation={3}>
             <Card>
-              <Row className={styles.summary}>
-                <Col xs="6" sm="7" className={styles.summary__item}>
-                  <div className={styles.total}>
-                    {" "}
-                    TOTAL PRICE: {totalPrice(cart)} EUR
-                  </div>
-                </Col>
-                <Col xs="6" sm="5" className={styles.summary__item}>
-                  <div className={styles.buttons}>
-                    <Button variant="contained" className={styles.button}>
-                      Book it!
-                    </Button>
-                  </div>
-                </Col>
-              </Row>
+              {!open ? (
+                <Row className={styles.summary}>
+                  <Col xs="6" sm="7" className={styles.summary__item}>
+                    <div className={styles.total}>
+                      {" "}
+                      TOTAL PRICE: {totalPrice(cart)} EUR
+                    </div>
+                  </Col>
+                  <Col xs="6" sm="5" className={styles.summary__item}>
+                    <div className={styles.buttons}>
+                      <Button
+                        variant="contained"
+                        className={styles.button}
+                        onClick={showRegister}
+                      >
+                        Book it!
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              ) : null}
+
+              {open ? (
+                <Row className={styles.register}>
+                  <Col xs="12" className={styles.register__item}>
+                    <Register
+                      children={`TOTAL PRICE: ${totalPrice(cart)} EUR`}
+                    />
+                  </Col>
+                </Row>
+              ) : null}
             </Card>
           </Paper>
         ) : null}

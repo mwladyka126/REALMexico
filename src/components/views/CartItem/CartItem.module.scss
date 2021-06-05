@@ -4,6 +4,8 @@
 .root {
   color: $color-text-dark;
   .container {
+    margin: 20px auto;
+
     .title {
       text-align: center;
       padding: $base-size;
@@ -19,7 +21,9 @@
           margin: 0 auto;
           .image {
             @include image;
-            padding: 0 $base-size;
+            margin: 0 $base-size;
+            padding: $base-size;
+            border: $color-background-light solid 2px;
           }
         }
         .date {
@@ -49,6 +53,17 @@
           margin: 0 auto;
           width: 80%;
           padding: $base-size;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 750px) {
+  .reservation {
+    &__item {
+      .hero {
+        .image {
+          border: none;
         }
       }
     }

@@ -1,4 +1,44 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
 
-// .root {
-// }
+.root {
+  color: $color-text-dark;
+  .title {
+    text-align: center;
+    padding: $base-size;
+  }
+  .register {
+    @include wrapper;
+    flex-direction: column;
+    &__label {
+      padding: $base-size;
+    }
+    &__field {
+      width: 50%;
+      padding: $base-size/2;
+    }
+    &__error {
+    }
+    &__submit {
+      @include wrapper;
+      padding: $base-size;
+      .price {
+        margin: 0 auto;
+        font-size: $base-size * 1.5;
+        font-weight: bold;
+        padding: $base-size;
+      }
+      .button {
+        margin: 20px auto;
+        background-color: $color-background-color;
+        padding: $base-size;
+        color: $color-text-light;
+        font-family: bold;
+        &:hover {
+          transform: scale(1.2);
+          transition: $transition;
+        }
+      }
+    }
+  }
+}

@@ -19,13 +19,11 @@
           margin: 0 auto;
           font-size: $base-size * 1.5;
           font-weight: bold;
-
           padding: $base-size;
         }
         .buttons {
           @include wrapper;
           justify-content: center;
-
           .button {
             background-color: $color-background-color;
             padding: $base-size $base-size * 2;
