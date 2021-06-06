@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import Button from "@material-ui/core/Button";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as Yup from "yup";
 
 import clsx from "clsx";
@@ -24,6 +26,7 @@ const Component = ({ className, children }) => (
           .max(20, "Must be 20 characters or less")
           .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
+        phone: Yup.number().positive().integer().required(),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -55,10 +58,17 @@ const Component = ({ className, children }) => (
         <Field name="email" type="email" className={styles.register__field} />
         <ErrorMessage name="email" className={styles.register__error} />
 
+        <label htmlFor="phone" className={styles.register__label}>
+          Phone
+        </label>
+        <Field name="phone" type="number" className={styles.register__field} />
+        <ErrorMessage name="firstName" className={styles.register__error} />
+
         <div className={styles.register__submit}>
           <div className={styles.price}>{children}</div>
           <Button type="submit" className={styles.button}>
-            Submit
+            Submit{" "}
+            <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} />
           </Button>
         </div>
       </Form>
