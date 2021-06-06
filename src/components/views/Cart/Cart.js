@@ -14,7 +14,7 @@ import styles from "./Cart.module.scss";
 import { CartItem } from "../CartItem/CartItem";
 import { Register } from "../Register/Register";
 
-const Component = ({ className, cart }) => {
+const Component = ({ className, cart, children }) => {
   const totalPrice = (cart) => {
     if (cart.length > 0) {
       const mapByPrice = cart.map((item) => parseInt(item.totalPrice));
@@ -82,6 +82,7 @@ const Component = ({ className, cart }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  cart: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({

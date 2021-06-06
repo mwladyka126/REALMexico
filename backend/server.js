@@ -2,11 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const OffersRoutes = require("./routes/offers.routes");
+const offersRoutes = require("./routes/offers.routes");
+const regionsRoutes = require("./routes/regions.routes");
 
 const app = express();
-require("dotenv").config();
 
 /* MIDDLEWARE */
 app.use(cors());
@@ -14,11 +15,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 /* API ENDPOINTS */
-app.use("/api", OffersRoutes);
+app.use("/api", offersRoutes);
+app.use("/api", regionsRoutes);
 
 /* API ERROR PAGES */
 app.use("/api", (req, res) => {
-  res.status(404).send({ Offer: "Not found..." });
+  res.status(404).send({ page: "Not found..." });
 });
 
 /* REACT WEBSITE */
