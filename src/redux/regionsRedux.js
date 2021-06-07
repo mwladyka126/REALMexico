@@ -1,5 +1,8 @@
+import Axios from "axios";
+
 /* selectors */
 export const getAllRegions = ({ regions }) => regions.data;
+export const getLoadingState = ({ regions }) => regions.loading;
 
 /* action name creator */
 const reducerName = "regions";
@@ -16,6 +19,23 @@ export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
 
 /* thunk creators */
+
+export const fetchRegionsFromAPI = () => {
+  return (dispatch, getState) => {
+    const { regions } = getState();
+
+    if (regions.data.length === 0 || regions.loading.active === "false") {
+      dispatch(fetchStarted());
+      Axios.get("http://localhost:8000/api/regions")
+        .then((res) => {
+          dispatch(fetchSuccess(res.data));
+        })
+        .catch((err) => {
+          dispatch(fetchError(err.message || true));
+        });
+    }
+  };
+};
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {

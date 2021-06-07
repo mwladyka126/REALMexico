@@ -9,6 +9,7 @@ export const getOffersByRegion = ({ offers }, regionId) =>
   offers.data.filter((offer) => offer.regionId === regionId);
 export const getFromCart = ({ offers }) => offers.cart;
 export const countInCart = ({ offers }) => offers.cart.length;
+export const getLoadingState = ({ offers }) => offers.loading;
 
 /* action name creator */
 const reducerName = "offers";

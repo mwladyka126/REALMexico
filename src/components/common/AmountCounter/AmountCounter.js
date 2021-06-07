@@ -76,6 +76,9 @@ const Component = ({ className, maxNumber, defaultValue, setAmount }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  maxNumber: PropTypes.number,
+  defaultValue: PropTypes.number,
+  setAmount: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({

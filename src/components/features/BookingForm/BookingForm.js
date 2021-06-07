@@ -19,7 +19,7 @@ import styles from "./BookingForm.module.scss";
 class Component extends React.Component {
   state = {
     cart: {
-      id: this.props.offer.id,
+      _id: this.props.offer._id,
       title: this.props.offer.title,
       image: this.props.offer.image[0],
       price: this.props.offer.price,
@@ -163,6 +163,7 @@ class Component extends React.Component {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  offer: PropTypes.object,
 };
 
 export {

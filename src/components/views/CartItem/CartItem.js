@@ -169,6 +169,13 @@ class Component extends React.Component {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  title: PropTypes.string,
+  image: PropTypes.string,
+  start: PropTypes.string,
+  message: PropTypes.string,
+  days: PropTypes.number,
+  people: PropTypes.number,
+  totalPrice: PropTypes.number,
 };
 const mapStateToProps = (state, props) => ({});
 

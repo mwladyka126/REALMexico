@@ -176,6 +176,7 @@ export const initialState = {
   },
   regions: {
     data: [
+      /*
       {
         id: "1",
         name: "Riviera Maya",
@@ -211,7 +212,7 @@ export const initialState = {
         name: "Huasteca Potosina",
         regionId: "huastecapotosina",
         image: "/images/offers/Huasteca2.jpg",
-      },
+      },*/
     ],
     loading: {
       active: false,

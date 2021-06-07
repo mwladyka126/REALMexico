@@ -12,11 +12,14 @@ import {
   getOne,
   fetchOneOfferFromAPI,
   addToCart,
+  getLoadingState,
 } from "../../../redux/offersRedux.js";
 
 import styles from "./OfferPage.module.scss";
 
 import { BookingForm } from "../../features/BookingForm/BookingForm";
+import { Loading } from "../../common/Loading/Loading";
+import { Error } from "../../common/Error/Error";
 
 class Component extends React.Component {
   state = {
@@ -57,72 +60,94 @@ class Component extends React.Component {
     addToCart(cart);
   };
   render() {
-    const { className, offer, addToCart, match } = this.props;
+    const {
+      className,
+      offer,
+      addToCart,
+      loading: { active, error },
+    } = this.props;
     console.log("offer", offer);
-    console.log(match);
+    if (active || offer === {}) {
+      return (
+        <Paper className={styles.component}>
+          <Loading />
+        </Paper>
+      );
+    } else if (error) {
+      return (
+        <Paper className={styles.component}>
+          <Error>{error}</Error>
+        </Paper>
+      );
+    } else {
+      return (
+        <div className={clsx(className, styles.root)}>
+          <Row>
+            <Col xs="12" sm="7">
+              <div>
+                <div className={styles.element}>
+                  <h3>{offer.title}</h3>
+                  <p>{offer.description}</p>
+                </div>
 
-    return (
-      <div className={clsx(className, styles.root)}>
-        <Row>
-          <Col xs="12" sm="7">
-            <div>
-              <div className={styles.element}>
-                <h3>{offer.title}</h3>
-                <p>{offer.description}</p>
-              </div>
+                <div className={styles.element}>
+                  <h3>Highlights</h3>
+                  <p>{offer.description}</p>
+                </div>
+                <Paper>
+                  <Row>
+                    <Col xs="12" sm="6">
+                      <div className={styles.photoWrapper}>
+                        <img src={offer.image[0]} alt={offer.title} />
+                      </div>
+                    </Col>
+                    <Col xs="12" sm="6">
+                      <div className={styles.photoWrapper}>
+                        <img src={offer.image[1]} alt={offer.title} />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs="12">
+                      <div className={styles.photoWrapper}>
+                        <img src={offer.image[2]} alt={offer.title} />
+                      </div>
+                    </Col>
+                  </Row>
+                </Paper>
 
-              <div className={styles.element}>
-                <h3>Highlights</h3>
-                <p>{offer.description}</p>
-              </div>
-              <Paper>
-                <Row>
-                  <Col xs="12" sm="6">
-                    <div className={styles.photoWrapper}>
-                      <img src={offer.image[0]} alt={offer.title} />
-                    </div>
-                  </Col>
-                  <Col xs="12" sm="6">
-                    <div className={styles.photoWrapper}>
-                      <img src={offer.image[1]} alt={offer.title} />
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs="12">
-                    <div className={styles.photoWrapper}>
-                      <img src={offer.image[2]} alt={offer.title} />
-                    </div>
-                  </Col>
-                </Row>
-              </Paper>
-
-              <Hero
-                title={`Discover ${offer.region} region`}
-                buttonDesc={`${offer.region} trips`}
-                subtitle="Discover our selection of experiences in Mexico. Must-see tours,
+                <Hero
+                  title={`Discover ${offer.region} region`}
+                  buttonDesc={`${offer.region} trips`}
+                  subtitle="Discover our selection of experiences in Mexico. Must-see tours,
           honeymoon itineraries, adventure trips, all are flexible and will
           adapt to your needs and expectations. Get inspired and trust our team
           of local experts to create your own tailor-made trip"
-                link={`/offers/${offer.regionId}`}
-              />
-            </div>
-          </Col>
-          <Col xs="12" sm="5">
-            <BookingForm offer={offer} addToCart={addToCart} />
-          </Col>
-        </Row>
-      </div>
-    );
+                  link={`/offers/${offer.regionId}`}
+                />
+              </div>
+            </Col>
+            <Col xs="12" sm="5">
+              <BookingForm offer={offer} addToCart={addToCart} />
+            </Col>
+          </Row>
+        </div>
+      );
+    }
   }
 }
 
 Component.propTypes = {
   className: PropTypes.string,
+  offer: PropTypes.object,
+  fetchOffer: PropTypes.func,
+  addToCart: PropTypes.func,
+  loading: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
   offer: getOne(state),
+  loading: getLoadingState(state),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

@@ -80,6 +80,7 @@ const Component = ({ className, children, amountInCart }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  amountInCart: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({

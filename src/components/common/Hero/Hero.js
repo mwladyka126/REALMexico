@@ -47,6 +47,10 @@ const Component = ({
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  title: PropTypes.string,
+  link: PropTypes.string,
+  buttonDesc: PropTypes.string,
+  subtitle: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({
