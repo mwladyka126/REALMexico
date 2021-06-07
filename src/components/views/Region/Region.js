@@ -48,10 +48,10 @@ const Component = ({ className, offers, match }) => {
 
       <Row className={styles.offers}>
         {offers.map((offer) => (
-          <Col xs="12" sm="6" md="6" key={offer.id}>
+          <Col xs="12" sm="6" md="6" key={offer._id}>
             <Card className={styles.offer}>
               <Link
-                to={`/offers/${regionId}/${offer.id}`}
+                to={`/offers/${regionId}/${offer._id}`}
                 className={styles.link}
               >
                 <CardActionArea>

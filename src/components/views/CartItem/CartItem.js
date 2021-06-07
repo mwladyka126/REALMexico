@@ -20,7 +20,7 @@ import styles from "./CartItem.module.scss";
 class Component extends React.Component {
   state = {
     cart: {
-      id: this.props.id,
+      _id: this.props._id,
       days: this.props.days,
       people: this.props.people,
       message: this.props.message,

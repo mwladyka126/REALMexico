@@ -1,7 +1,7 @@
 export const initialState = {
   offers: {
     data: [
-      {
+      /*     {
         id: "1",
         region: "Riviera Maya",
         regionId: "rivieramaya",
@@ -140,12 +140,13 @@ export const initialState = {
           "/images/offers/CDMX.jpg",
           "/images/offers/teotihuacan.jpg",
         ],
-      },
+      },*/
     ],
     loading: {
       active: false,
       error: false,
     },
+    oneOffer: {},
     cart: [
       {
         id: "1",

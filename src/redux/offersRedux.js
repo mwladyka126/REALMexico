@@ -1,7 +1,10 @@
+import Axios from "axios";
+
 /* selectors */
 export const getAllOffers = ({ offers }) => offers.data;
+export const getOne = ({ offers }) => offers.oneOffer;
 export const getOneOffer = ({ offers }, offerId) =>
-  offers.data.find((offer) => offer.id === offerId);
+  offers.data.find((offer) => offer._id === offerId);
 export const getOffersByRegion = ({ offers }, regionId) =>
   offers.data.filter((offer) => offer.regionId === regionId);
 export const getFromCart = ({ offers }) => offers.cart;
@@ -18,11 +21,13 @@ const FETCH_ERROR = createActionName("FETCH_ERROR");
 const ADD_TO_CART = createActionName("ADD_TO_CART");
 const EDIT_IN_CART = createActionName("EDIT_IN_CART");
 const REMOVE_FROM_CART = createActionName("REMOVE_FROM_CART");
+const FETCH_ONE_OFFER = createActionName("FETCH_ONE_OFFER");
 
 /* action creators */
 export const fetchStarted = (payload) => ({ payload, type: FETCH_START });
 export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
+export const fetchOneOffer = (payload) => ({ payload, type: FETCH_ONE_OFFER });
 export const addToCart = (payload) => ({ payload, type: ADD_TO_CART });
 export const editInCart = (payload) => ({ payload, type: EDIT_IN_CART });
 export const removeFromCart = (payload) => ({
@@ -31,6 +36,36 @@ export const removeFromCart = (payload) => ({
 });
 
 /* thunk creators */
+
+export const fetchOffersFromAPI = () => {
+  return (dispatch, getState) => {
+    const { offers } = getState();
+
+    if (offers.data.length === 0 || offers.loading.active === "false") {
+      dispatch(fetchStarted());
+      Axios.get("http://localhost:8000/api/offers")
+        .then((res) => {
+          dispatch(fetchSuccess(res.data));
+        })
+        .catch((err) => {
+          dispatch(fetchError(err.message || true));
+        });
+    }
+  };
+};
+
+export const fetchOneOfferFromAPI = (id) => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
+    Axios.get(`http://localhost:8000/api/offers/${id}`)
+      .then((res) => {
+        dispatch(fetchOneOffer(res.data));
+      })
+      .catch((err) => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
@@ -61,6 +96,16 @@ export const reducer = (statePart = [], action = {}) => {
           active: false,
           error: action.payload,
         },
+      };
+    }
+    case FETCH_ONE_OFFER: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+        },
+        oneOffer: action.payload,
       };
     }
     case ADD_TO_CART: {

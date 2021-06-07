@@ -8,7 +8,11 @@ import Paper from "@material-ui/core/Paper";
 import clsx from "clsx";
 
 import { connect } from "react-redux";
-import { getOneOffer, addToCart } from "../../../redux/offersRedux.js";
+import {
+  getOne,
+  fetchOneOfferFromAPI,
+  addToCart,
+} from "../../../redux/offersRedux.js";
 
 import styles from "./OfferPage.module.scss";
 
@@ -17,7 +21,7 @@ import { BookingForm } from "../../features/BookingForm/BookingForm";
 class Component extends React.Component {
   state = {
     cart: {
-      id: this.props.offer.id,
+      _id: this.props.offer._id,
       title: this.props.offer.title,
       image: this.props.offer.image,
       price: this.props.offer.price,
@@ -28,6 +32,11 @@ class Component extends React.Component {
       message: "",
     },
   };
+
+  componentDidMount() {
+    const { fetchOffer } = this.props;
+    fetchOffer();
+  }
 
   setPeople = (amount) => {
     const { cart } = this.state;
@@ -48,7 +57,9 @@ class Component extends React.Component {
     addToCart(cart);
   };
   render() {
-    const { className, offer, addToCart } = this.props;
+    const { className, offer, addToCart, match } = this.props;
+    console.log("offer", offer);
+    console.log(match);
 
     return (
       <div className={clsx(className, styles.root)}>
@@ -110,11 +121,12 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-const mapStateToProps = (state, props) => ({
-  offer: getOneOffer(state, props.match.params.offerId),
+const mapStateToProps = (state) => ({
+  offer: getOne(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, props) => ({
+  fetchOffer: () => dispatch(fetchOneOfferFromAPI(props.match.params.offerId)),
   addToCart: (value) => dispatch(addToCart(value)),
 });
 
