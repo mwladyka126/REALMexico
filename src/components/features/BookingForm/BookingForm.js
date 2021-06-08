@@ -126,7 +126,7 @@ class Component extends React.Component {
             </div>
             <div className={styles.booking__item}>
               <p>Total price: </p>
-              <p>{cart.price * cart.days * cart.people}</p>
+              <p>{cart.price * cart.days * cart.people} EUR</p>
             </div>
             <div className={styles.booking__item}>
               <p className={styles.subtitle}>

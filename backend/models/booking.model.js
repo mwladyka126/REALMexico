@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema({
-  trips: { type: Object, required: true },
+  trips: { type: Array, required: true },
   created: { type: Date, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },

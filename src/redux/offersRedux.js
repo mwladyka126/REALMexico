@@ -120,7 +120,7 @@ export const reducer = (statePart = [], action = {}) => {
         ...statePart,
         cart: [
           ...statePart.cart.map((item) =>
-            item.id === action.payload.id ? action.payload : item
+            item._id === action.payload._id ? action.payload : item
           ),
         ],
       };
@@ -129,7 +129,7 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         cart: [
-          ...statePart.cart.filter((item) => item.id !== action.payload.id),
+          ...statePart.cart.filter((item) => item._id !== action.payload._id),
         ],
       };
     }

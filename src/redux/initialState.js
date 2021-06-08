@@ -147,7 +147,7 @@ export const initialState = {
       error: false,
     },
     oneOffer: {
-      id: "10",
+      _id: "10",
       region: "CDMX",
       regionId: "cdmx",
       title: "Ciudad de Mexico",
@@ -162,7 +162,7 @@ export const initialState = {
     },
     cart: [
       {
-        id: "1",
+        _id: "1",
         title: "Huasetca",
         image: "images/offers/IslaMujeres.jpg",
         days: 3,
@@ -213,6 +213,22 @@ export const initialState = {
         regionId: "huastecapotosina",
         image: "/images/offers/Huasteca2.jpg",
       },*/
+    ],
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
+  bookings: {
+    data: [
+      {
+        trips: [],
+        created: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+      },
     ],
     loading: {
       active: false,

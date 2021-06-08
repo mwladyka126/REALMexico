@@ -5,11 +5,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { initialState } from "./initialState";
 import { reducer as offersReducer } from "./offersRedux";
 import { reducer as regionsReducer } from "./regionsRedux";
+import { reducer as bookingsReducer } from "./bookingsRedux";
 
 // define reducers
 const reducers = {
   offers: offersReducer,
   regions: regionsReducer,
+  bookings: bookingsReducer,
 };
 
 // add blank reducers for initial state properties without reducers
