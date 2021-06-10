@@ -15,7 +15,8 @@ router.get("/bookings", async (req, res) => {
 
 router.post("/bookings", async (req, res) => {
   try {
-    const { trips, created, firstName, lastName, email, phone } = req.body;
+    const { trips, created, firstName, lastName, email, phone, bookingId } =
+      req.body;
     const newBooking = new Booking({
       trips,
       created,
@@ -23,6 +24,7 @@ router.post("/bookings", async (req, res) => {
       lastName,
       email,
       phone,
+      bookingId,
     });
     await newBooking.save();
     res.json({ newBooking });

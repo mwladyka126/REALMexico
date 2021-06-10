@@ -71,6 +71,8 @@ class Component extends React.Component {
     } else {
       alert("you have to choose the amount of days and people");
     }
+
+    localStorage.setItem("tripInCart", JSON.stringify(cart));
   };
 
   render() {

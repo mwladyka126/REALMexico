@@ -10,14 +10,22 @@ import clsx from "clsx";
 
 import { connect } from "react-redux";
 import styles from "./Register.module.scss";
-import { addNewBooking } from "../../../redux/bookingsRedux";
+import { addBookingRequest } from "../../../redux/bookingsRedux";
+import { removeFromCart } from "../../../redux/offersRedux.js";
 
-const Component = ({ className, bookings, totalPrice, sendBooking }) => {
+const Component = ({
+  className,
+  bookings,
+  totalPrice,
+  sendBooking,
+  cleanCart,
+}) => {
   const submitOrder = (values) => {
-    values.created = new Date().toISOString;
+    values.created = new Date().toLocaleDateString("en-US");
     values.trips = bookings;
     alert(JSON.stringify(values, null, 2));
     sendBooking(values);
+    bookings.forEach((el) => cleanCart(el));
   };
   return (
     <div className={clsx(className, styles.root)}>
@@ -30,6 +38,7 @@ const Component = ({ className, bookings, totalPrice, sendBooking }) => {
           phone: "",
           trips: "",
           created: "",
+          bookingId: "",
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
@@ -103,7 +112,8 @@ Component.propTypes = {
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  sendBooking: (value) => dispatch(addNewBooking(value)),
+  sendBooking: (value) => dispatch(addBookingRequest(value)),
+  cleanCart: (value) => dispatch(removeFromCart(value)),
 });
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 

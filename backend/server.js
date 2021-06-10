@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const offersRoutes = require("./routes/offers.routes");
 const regionsRoutes = require("./routes/regions.routes");
+const bookingsRoutes = require("./routes/bookings.routes");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 /* API ENDPOINTS */
 app.use("/api", offersRoutes);
 app.use("/api", regionsRoutes);
+app.use("/api", bookingsRoutes);
 
 /* API ERROR PAGES */
 app.use("/api", (req, res) => {

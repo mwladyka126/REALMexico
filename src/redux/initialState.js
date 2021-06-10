@@ -161,7 +161,7 @@ export const initialState = {
       ],
     },
     cart: [
-      {
+      /* {
         _id: "1",
         title: "Huasetca",
         image: "images/offers/IslaMujeres.jpg",
@@ -171,7 +171,7 @@ export const initialState = {
         price: "300",
         totalPrice: "900",
         message: "blalalal",
-      },
+      },*/
     ],
   },
   regions: {
@@ -221,6 +221,7 @@ export const initialState = {
   },
   bookings: {
     data: [
+      /*
       {
         trips: [],
         created: "",
@@ -228,7 +229,7 @@ export const initialState = {
         lastName: "",
         email: "",
         phone: "",
-      },
+      },*/
     ],
     loading: {
       active: false,
