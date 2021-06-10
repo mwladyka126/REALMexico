@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 import { connect } from "react-redux";
 import { getFromCart } from "../../../redux/offersRedux.js";
-import { getLoadingState } from "../../../redux/bookingsRedux.js";
+import { getLoadingState } from "../../../redux/offersRedux.js";
 
 import styles from "./Cart.module.scss";
 import { CartItem } from "../CartItem/CartItem";
@@ -32,23 +32,23 @@ const Component = ({ className, cart, children, loading }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
-        {!loading.sentToServer ? (
+        {loading.confirmation ? (
           <>
+            {" "}
+            <h2 className={styles.title}>Thank you for your booking</h2>
+            <FontAwesomeIcon icon={faCheckCircle} />
+          </>
+        ) : (
+          <>
+            {" "}
             {cart.length > 0 ? (
               <h2 className={styles.title}>Proccess your booking</h2>
             ) : (
               <h2 className={styles.title}>Your cart is empty!</h2>
             )}
           </>
-        ) : (
-          <div className={styles.container__success}>
-            <FontAwesomeIcon
-              icon={faCheckCircle}
-              className={styles.iconSuccess}
-            />
-            <h2 className={styles.titleSuccess}>Thanks for your booking!</h2>
-          </div>
         )}
+
         {cart.map((item) => (
           <CartItem {...item} />
         ))}

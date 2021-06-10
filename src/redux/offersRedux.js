@@ -22,6 +22,7 @@ const FETCH_ERROR = createActionName("FETCH_ERROR");
 const ADD_TO_CART = createActionName("ADD_TO_CART");
 const EDIT_IN_CART = createActionName("EDIT_IN_CART");
 const REMOVE_FROM_CART = createActionName("REMOVE_FROM_CART");
+const CLEAN_CART = createActionName("CLEAN_CART");
 const FETCH_ONE_OFFER = createActionName("FETCH_ONE_OFFER");
 
 /* action creators */
@@ -31,6 +32,10 @@ export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
 export const fetchOneOffer = (payload) => ({ payload, type: FETCH_ONE_OFFER });
 export const addToCart = (payload) => ({ payload, type: ADD_TO_CART });
 export const editInCart = (payload) => ({ payload, type: EDIT_IN_CART });
+export const cleanCart = (payload) => ({
+  payload,
+  type: CLEAN_CART,
+});
 export const removeFromCart = (payload) => ({
   payload,
   type: REMOVE_FROM_CART,
@@ -77,6 +82,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: true,
           error: false,
+          confirmation: false,
         },
       };
     }
@@ -86,6 +92,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: false,
+          confirmation: false,
         },
         data: action.payload,
       };
@@ -96,6 +103,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: action.payload,
+          confirmation: false,
         },
       };
     }
@@ -105,6 +113,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: false,
+          confirmation: false,
         },
         oneOffer: action.payload,
       };
@@ -112,12 +121,22 @@ export const reducer = (statePart = [], action = {}) => {
     case ADD_TO_CART: {
       return {
         ...statePart,
+        loading: {
+          active: false,
+          error: false,
+          confirmation: false,
+        },
         cart: [...statePart.cart, action.payload],
       };
     }
     case EDIT_IN_CART: {
       return {
         ...statePart,
+        loading: {
+          active: false,
+          error: false,
+          confirmation: false,
+        },
         cart: [
           ...statePart.cart.map((item) =>
             item._id === action.payload._id ? action.payload : item
@@ -128,9 +147,25 @@ export const reducer = (statePart = [], action = {}) => {
     case REMOVE_FROM_CART: {
       return {
         ...statePart,
+        loading: {
+          active: false,
+          error: false,
+          confirmation: false,
+        },
         cart: [
           ...statePart.cart.filter((item) => item._id !== action.payload._id),
         ],
+      };
+    }
+    case CLEAN_CART: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+          confirmation: true,
+        },
+        cart: [],
       };
     }
     default:

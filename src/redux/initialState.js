@@ -217,6 +217,7 @@ export const initialState = {
     loading: {
       active: false,
       error: false,
+      confirmation: false,
     },
   },
   bookings: {
@@ -234,7 +235,6 @@ export const initialState = {
     loading: {
       active: false,
       error: false,
-      sentToServer: false,
     },
   },
 };
