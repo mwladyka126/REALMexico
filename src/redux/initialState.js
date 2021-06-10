@@ -234,6 +234,7 @@ export const initialState = {
     loading: {
       active: false,
       error: false,
+      sentToServer: false,
     },
   },
 };

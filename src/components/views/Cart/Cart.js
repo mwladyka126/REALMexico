@@ -4,17 +4,20 @@ import { Row, Col } from "reactstrap";
 import Card from "@material-ui/core/Card";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 import clsx from "clsx";
 
 import { connect } from "react-redux";
 import { getFromCart } from "../../../redux/offersRedux.js";
+import { getLoadingState } from "../../../redux/bookingsRedux.js";
 
 import styles from "./Cart.module.scss";
 import { CartItem } from "../CartItem/CartItem";
 import { Register } from "../Register/Register";
 
-const Component = ({ className, cart, children }) => {
+const Component = ({ className, cart, children, loading }) => {
   const totalPrice = (cart) => {
     if (cart.length > 0) {
       const mapByPrice = cart.map((item) => parseInt(item.totalPrice));
@@ -29,10 +32,22 @@ const Component = ({ className, cart, children }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
-        {cart.length > 0 ? (
-          <h2 className={styles.title}>Proccess your booking</h2>
+        {!loading.sentToServer ? (
+          <>
+            {cart.length > 0 ? (
+              <h2 className={styles.title}>Proccess your booking</h2>
+            ) : (
+              <h2 className={styles.title}>Your cart is empty!</h2>
+            )}
+          </>
         ) : (
-          <h2 className={styles.title}>Your cart is empty!</h2>
+          <div className={styles.container__success}>
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              className={styles.iconSuccess}
+            />
+            <h2 className={styles.titleSuccess}>Thanks for your booking!</h2>
+          </div>
         )}
         {cart.map((item) => (
           <CartItem {...item} />
@@ -88,6 +103,7 @@ Component.propTypes = {
 
 const mapStateToProps = (state) => ({
   cart: getFromCart(state),
+  loading: getLoadingState(state),
 });
 
 // const mapDispatchToProps = dispatch => ({

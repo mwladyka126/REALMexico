@@ -62,6 +62,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: true,
           error: false,
+          sentToServer: false,
         },
       };
     }
@@ -71,6 +72,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: false,
+          sentToServer: false,
         },
         data: action.payload,
       };
@@ -81,6 +83,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: action.payload,
+          sentToServer: false,
         },
       };
     }
@@ -90,6 +93,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: false,
+          sentToServer: true,
         },
         data: [...statePart.data, action.payload],
       };
