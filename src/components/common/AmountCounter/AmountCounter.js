@@ -45,7 +45,7 @@ const Component = ({ className, maxNumber, defaultValue, setAmount }) => {
         <Button
           variant="contained"
           onClick={() => handleDecrease()}
-          disabled={parseInt(count) <= 0 ? true : false}
+          disabled={parseInt(count) <= 1 ? true : false}
           className={styles.button}
           aria-label="reduce"
         >

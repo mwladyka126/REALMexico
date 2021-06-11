@@ -58,6 +58,16 @@ class Component extends React.Component {
       cart: { ...cart, [event.target.name]: event.target.value },
     });
     editInCart({ ...cart, [event.target.name]: event.target.value });
+    console.log("cart", cart);
+    const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
+    console.log("cartInLo", cartInLocalStorage);
+    const itemToEdit = cartInLocalStorage.find((el) => el.title === cart.title);
+    console.log("itemToedit", itemToEdit);
+    const index = cartInLocalStorage.indexOf(itemToEdit);
+    console.log("index", index);
+    itemToEdit.message = event.target.value;
+    cartInLocalStorage.splice(index, 1, itemToEdit);
+    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
   };
   setDate = (date) => {
     const { cart } = this.state;
@@ -70,6 +80,13 @@ class Component extends React.Component {
       },
     });
     editInCart({ ...cart, start: date.toLocaleDateString("en-US") });
+
+    const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
+    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+    const index = cartInLocalStorage.indexOf(itemToEdit);
+    itemToEdit.start = date.toLocaleDateString("en-US");
+    cartInLocalStorage.splice(index, 1, itemToEdit);
+    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
   };
 
   removeItem = () => {
@@ -77,6 +94,11 @@ class Component extends React.Component {
     const { removeFromCart } = this.props;
 
     removeFromCart(cart);
+
+    const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
+    const index = cartInLocalStorage.findIndex((el) => el._id === cart._id);
+    cartInLocalStorage.splice(index, 1);
+    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
   };
 
   render() {
