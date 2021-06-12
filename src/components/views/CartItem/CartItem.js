@@ -36,18 +36,45 @@ class Component extends React.Component {
     const { cart } = this.state;
     const { editInCart } = this.props;
 
-    this.setState({ cart: { ...cart, people: parseInt(amount) } });
-    const newPrice = cart.price * cart.people * cart.days;
+    const newPrice = cart.price * parseInt(amount) * cart.days;
+
+    this.setState({
+      cart: {
+        ...cart,
+        people: parseInt(amount),
+        totalPrice: newPrice,
+      },
+    });
     editInCart({ ...cart, people: parseInt(amount), totalPrice: newPrice });
+    const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
+    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+    const index = cartInLocalStorage.indexOf(itemToEdit);
+    itemToEdit.people = parseInt(amount);
+    itemToEdit.totalPrice = newPrice;
+    cartInLocalStorage.splice(index, 1, itemToEdit);
+    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
   };
 
   setDays = (amount) => {
     const { cart } = this.state;
     const { editInCart } = this.props;
 
-    this.setState({ cart: { ...cart, days: parseInt(amount) } });
-    const newPrice = cart.price * cart.people * cart.days;
+    const newPrice = cart.price * parseInt(amount) * cart.people;
+
+    this.setState({
+      cart: {
+        ...cart,
+        days: parseInt(amount),
+        totalPrice: newPrice,
+      },
+    });
     editInCart({ ...cart, days: parseInt(amount), totalPrice: newPrice });
+    const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
+    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+    const index = cartInLocalStorage.indexOf(itemToEdit);
+    itemToEdit.days = parseInt(amount);
+    cartInLocalStorage.splice(index, 1, itemToEdit);
+    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
   };
 
   handleChange = (event) => {
@@ -58,13 +85,10 @@ class Component extends React.Component {
       cart: { ...cart, [event.target.name]: event.target.value },
     });
     editInCart({ ...cart, [event.target.name]: event.target.value });
-    console.log("cart", cart);
+
     const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-    console.log("cartInLo", cartInLocalStorage);
-    const itemToEdit = cartInLocalStorage.find((el) => el.title === cart.title);
-    console.log("itemToedit", itemToEdit);
+    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
     const index = cartInLocalStorage.indexOf(itemToEdit);
-    console.log("index", index);
     itemToEdit.message = event.target.value;
     cartInLocalStorage.splice(index, 1, itemToEdit);
     localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));

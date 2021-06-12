@@ -74,7 +74,7 @@ class Component extends React.Component {
 
     if (localStorage.getItem("tripInCart") !== null) {
       const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-      cartInLocalStorage.push([cart]);
+      cartInLocalStorage.push(cart);
       localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
     } else {
       localStorage.setItem("tripInCart", JSON.stringify([cart]));
