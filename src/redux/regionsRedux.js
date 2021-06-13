@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { API_URL } from "../config";
 
 /* selectors */
 export const getAllRegions = ({ regions }) => regions.data;
@@ -26,7 +27,7 @@ export const fetchRegionsFromAPI = () => {
 
     if (regions.data.length === 0 || regions.loading.active === "false") {
       dispatch(fetchStarted());
-      Axios.get("http://localhost:8000/api/regions")
+      Axios.get(`${API_URL}/regions`)
         .then((res) => {
           dispatch(fetchSuccess(res.data));
         })

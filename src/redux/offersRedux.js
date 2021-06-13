@@ -1,5 +1,5 @@
 import Axios from "axios";
-
+import { API_URL } from "../config";
 /* selectors */
 export const getAllOffers = ({ offers }) => offers.data;
 export const getOne = ({ offers }) => offers.oneOffer;
@@ -49,7 +49,7 @@ export const fetchOffersFromAPI = () => {
 
     if (offers.data.length === 0 || offers.loading.active === "false") {
       dispatch(fetchStarted());
-      Axios.get("http://localhost:8000/api/offers")
+      Axios.get(`${API_URL}/offers`)
         .then((res) => {
           dispatch(fetchSuccess(res.data));
         })
@@ -63,7 +63,7 @@ export const fetchOffersFromAPI = () => {
 export const fetchOneOfferFromAPI = (id) => {
   return (dispatch, getState) => {
     dispatch(fetchStarted());
-    Axios.get(`http://localhost:8000/api/offers/${id}`)
+    Axios.get(`${API_URL}/offers/${id}`)
       .then((res) => {
         dispatch(fetchOneOffer(res.data));
       })

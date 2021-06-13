@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { API_URL } from "../config";
 
 /* selectors */
 export const getAllbookings = ({ bookings }) => bookings.data;
@@ -28,7 +29,7 @@ export const fetchBookingsFromAPI = () => {
 
     if (bookings.data.length === 0 || bookings.loading.active === "false") {
       dispatch(fetchStarted());
-      Axios.get("http://localhost:8000/api/bookings")
+      Axios.get(`${API_URL}/bookings`)
         .then((res) => {
           dispatch(fetchSuccess(res.data));
         })
@@ -43,7 +44,7 @@ export const addBookingRequest = (data) => {
   return (dispatch) => {
     dispatch(fetchStarted());
     console.log("data", data);
-    Axios.post("http://localhost:8000/api/bookings", data)
+    Axios.post(`${API_URL}/bookings`, data)
       .then((res) => {
         dispatch(addNewBooking(data));
       })
