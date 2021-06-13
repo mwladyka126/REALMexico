@@ -22,7 +22,7 @@ import { countInCart } from "../../../redux/offersRedux";
 import styles from "./Header.module.scss";
 
 const Component = ({ className, children, amountInCart }) => {
-  const cart = JSON.parse(localStorage.getItem("tripInCart"));
+  // const cart = JSON.parse(localStorage.getItem("tripInCart"));
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
@@ -68,10 +68,7 @@ const Component = ({ className, children, amountInCart }) => {
         </div>
         <div className={styles.container__cart}>
           <Link to={"/cart"} className={styles.link}>
-            <Badge
-              color="secondary"
-              badgeContent={cart === null ? null : cart.length}
-            >
+            <Badge color="secondary" badgeContent={amountInCart}>
               <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
             </Badge>
           </Link>

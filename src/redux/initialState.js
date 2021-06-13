@@ -1,4 +1,4 @@
-export const initialState = {
+let initialState = {
   offers: {
     data: [
       /*     {
@@ -238,3 +238,17 @@ export const initialState = {
     },
   },
 };
+
+const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
+
+if (cartInLocalStorage !== null) {
+  initialState = {
+    ...initialState,
+    offers: {
+      ...initialState.offers,
+      cart: cartInLocalStorage,
+    },
+  };
+}
+
+export default initialState;

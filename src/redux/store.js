@@ -2,7 +2,7 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { initialState } from "./initialState";
+import initialState from "./initialState";
 import { reducer as offersReducer } from "./offersRedux";
 import { reducer as regionsReducer } from "./regionsRedux";
 import { reducer as bookingsReducer } from "./bookingsRedux";

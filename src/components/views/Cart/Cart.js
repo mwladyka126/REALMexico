@@ -10,14 +10,14 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 
 import { connect } from "react-redux";
-import { getLoadingState } from "../../../redux/offersRedux.js";
+import { getLoadingState, getFromCart } from "../../../redux/offersRedux.js";
 
 import styles from "./Cart.module.scss";
 import { CartItem } from "../CartItem/CartItem";
 import { Register } from "../Register/Register";
 
-const Component = ({ className, children, loading }) => {
-  const cart = JSON.parse(localStorage.getItem("tripInCart"));
+const Component = ({ className, children, loading, cart }) => {
+  // const cart = JSON.parse(localStorage.getItem("tripInCart"));
 
   const totalPrice = (cart) => {
     if (cart.length > 0) {
@@ -101,6 +101,7 @@ Component.propTypes = {
 
 const mapStateToProps = (state) => ({
   loading: getLoadingState(state),
+  cart: getFromCart(state),
 });
 
 // const mapDispatchToProps = dispatch => ({
