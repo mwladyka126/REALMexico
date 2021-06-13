@@ -16,12 +16,13 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import clsx from "clsx";
 
+import { connect } from "react-redux";
+import { countInCart } from "../../../redux/offersRedux";
+
 import styles from "./Header.module.scss";
 
-const Component = ({ className, children }) => {
+const Component = ({ className, children, amountInCart }) => {
   const cart = JSON.parse(localStorage.getItem("tripInCart"));
-  console.log(cart);
-
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
@@ -83,10 +84,21 @@ const Component = ({ className, children }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  amountInCart: PropTypes.number,
 };
 
+const mapStateToProps = (state) => ({
+  amountInCart: countInCart(state),
+});
+
+// const mapDispatchToProps = dispatch => ({
+//   someAction: arg => dispatch(reduxActionCreator(arg)),
+// });
+
+const Container = connect(mapStateToProps)(Component);
+
 export {
-  Component as Header,
-  //Container as Header,
+  //Component as Header,
+  Container as Header,
   Component as HeaderComponent,
 };

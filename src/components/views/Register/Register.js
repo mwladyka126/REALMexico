@@ -25,7 +25,9 @@ const Component = ({
     values.trips = bookings;
     sendBooking(values);
     cleanCart();
-    localStorage.removeItem("tripInCart");
+    if (localStorage.getItem("tripInCart")) {
+      localStorage.removeItem("tripInCart");
+    }
   };
   return (
     <div className={clsx(className, styles.root)}>

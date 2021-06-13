@@ -17,6 +17,8 @@ import { CartItem } from "../CartItem/CartItem";
 import { Register } from "../Register/Register";
 
 const Component = ({ className, children, loading }) => {
+  const cart = JSON.parse(localStorage.getItem("tripInCart"));
+
   const totalPrice = (cart) => {
     if (cart.length > 0) {
       const mapByPrice = cart.map((item) => parseInt(item.totalPrice));
@@ -27,7 +29,6 @@ const Component = ({ className, children, loading }) => {
   const showRegister = () => {
     setOpen(true);
   };
-  const cart = JSON.parse(localStorage.getItem("tripInCart"));
 
   return (
     <div className={clsx(className, styles.root)}>

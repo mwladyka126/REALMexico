@@ -47,12 +47,14 @@ class Component extends React.Component {
     });
     editInCart({ ...cart, people: parseInt(amount), totalPrice: newPrice });
     const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
-    const index = cartInLocalStorage.indexOf(itemToEdit);
-    itemToEdit.people = parseInt(amount);
-    itemToEdit.totalPrice = newPrice;
-    cartInLocalStorage.splice(index, 1, itemToEdit);
-    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    if (cartInLocalStorage) {
+      const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+      const index = cartInLocalStorage.indexOf(itemToEdit);
+      itemToEdit.people = parseInt(amount);
+      itemToEdit.totalPrice = newPrice;
+      cartInLocalStorage.splice(index, 1, itemToEdit);
+      localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    }
   };
 
   setDays = (amount) => {
@@ -70,11 +72,13 @@ class Component extends React.Component {
     });
     editInCart({ ...cart, days: parseInt(amount), totalPrice: newPrice });
     const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
-    const index = cartInLocalStorage.indexOf(itemToEdit);
-    itemToEdit.days = parseInt(amount);
-    cartInLocalStorage.splice(index, 1, itemToEdit);
-    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    if (cartInLocalStorage) {
+      const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+      const index = cartInLocalStorage.indexOf(itemToEdit);
+      itemToEdit.days = parseInt(amount);
+      cartInLocalStorage.splice(index, 1, itemToEdit);
+      localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    }
   };
 
   handleChange = (event) => {
@@ -87,11 +91,13 @@ class Component extends React.Component {
     editInCart({ ...cart, [event.target.name]: event.target.value });
 
     const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
-    const index = cartInLocalStorage.indexOf(itemToEdit);
-    itemToEdit.message = event.target.value;
-    cartInLocalStorage.splice(index, 1, itemToEdit);
-    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    if (cartInLocalStorage) {
+      const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+      const index = cartInLocalStorage.indexOf(itemToEdit);
+      itemToEdit.message = event.target.value;
+      cartInLocalStorage.splice(index, 1, itemToEdit);
+      localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    }
   };
   setDate = (date) => {
     const { cart } = this.state;
@@ -106,11 +112,13 @@ class Component extends React.Component {
     editInCart({ ...cart, start: date.toLocaleDateString("en-US") });
 
     const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-    const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
-    const index = cartInLocalStorage.indexOf(itemToEdit);
-    itemToEdit.start = date.toLocaleDateString("en-US");
-    cartInLocalStorage.splice(index, 1, itemToEdit);
-    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    if (cartInLocalStorage) {
+      const itemToEdit = cartInLocalStorage.find((el) => el._id === cart._id);
+      const index = cartInLocalStorage.indexOf(itemToEdit);
+      itemToEdit.start = date.toLocaleDateString("en-US");
+      cartInLocalStorage.splice(index, 1, itemToEdit);
+      localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    }
   };
 
   removeItem = () => {
@@ -120,9 +128,11 @@ class Component extends React.Component {
     removeFromCart(cart);
 
     const cartInLocalStorage = JSON.parse(localStorage.getItem("tripInCart"));
-    const index = cartInLocalStorage.findIndex((el) => el._id === cart._id);
-    cartInLocalStorage.splice(index, 1);
-    localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    if (cartInLocalStorage) {
+      const index = cartInLocalStorage.findIndex((el) => el._id === cart._id);
+      cartInLocalStorage.splice(index, 1);
+      localStorage.setItem("tripInCart", JSON.stringify(cartInLocalStorage));
+    }
   };
 
   render() {
