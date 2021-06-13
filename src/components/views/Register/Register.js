@@ -25,6 +25,7 @@ const Component = ({
     values.trips = bookings;
     sendBooking(values);
     cleanCart();
+    localStorage.removeItem("tripInCart");
   };
   return (
     <div className={clsx(className, styles.root)}>

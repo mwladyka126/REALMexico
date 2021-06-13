@@ -5,7 +5,7 @@ import { CartComponent } from "./Cart";
 describe("Component Cart", () => {
   it("should render without crashing", () => {
     const component = shallow(
-      <CartComponent className="class" cart={[]} children="str" />
+      <CartComponent className="class" children="str" />
     );
     expect(component).toBeTruthy();
   });

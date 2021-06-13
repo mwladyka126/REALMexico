@@ -16,12 +16,12 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import clsx from "clsx";
 
-import { connect } from "react-redux";
-import { countInCart } from "../../../redux/offersRedux";
-
 import styles from "./Header.module.scss";
 
-const Component = ({ className, children, amountInCart }) => {
+const Component = ({ className, children }) => {
+  const cart = JSON.parse(localStorage.getItem("tripInCart"));
+  console.log(cart);
+
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
@@ -67,7 +67,10 @@ const Component = ({ className, children, amountInCart }) => {
         </div>
         <div className={styles.container__cart}>
           <Link to={"/cart"} className={styles.link}>
-            <Badge color="secondary" badgeContent={amountInCart}>
+            <Badge
+              color="secondary"
+              badgeContent={cart === null ? null : cart.length}
+            >
               <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
             </Badge>
           </Link>
@@ -80,21 +83,10 @@ const Component = ({ className, children, amountInCart }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  amountInCart: PropTypes.number,
 };
 
-const mapStateToProps = (state) => ({
-  amountInCart: countInCart(state),
-});
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-const Container = connect(mapStateToProps)(Component);
-
 export {
-  //Component as Header,
-  Container as Header,
+  Component as Header,
+  //Container as Header,
   Component as HeaderComponent,
 };
