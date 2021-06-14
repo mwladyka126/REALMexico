@@ -7,7 +7,7 @@
     @include container;
     .title {
       text-align: center;
-      padding: $base-size;
+      padding: $base-size * 2;
     }
 
     .summary {

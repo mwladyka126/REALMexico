@@ -142,12 +142,13 @@ class Component extends React.Component {
                 we can help you complete a perfect itinerary!
               </p>
               <textarea
-                rows="6"
+                rows="3"
                 className={styles.textarea}
                 name="message"
                 onChange={this.handleChange}
               ></textarea>
             </div>
+
             <div className={styles.booking__item}>
               <Button
                 variant="contained"

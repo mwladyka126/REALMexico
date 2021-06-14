@@ -59,7 +59,7 @@ class Component extends React.Component {
           />
           <Row>
             {allOffers.map((offer) => (
-              <Col xs="12" sm="6" md="4" key={offer._id}>
+              <Col xs="12" sm="6" md="6" key={offer._id}>
                 <Card className={styles.offer}>
                   <Link
                     to={`/offers/${offer.regionId}/${offer._id}`}

@@ -12,13 +12,17 @@
     flex-direction: column;
     &__label {
       padding: $base-size;
+      font-weight: 600;
     }
     &__field {
-      width: 50%;
+      width: 60%;
       padding: $base-size/2;
+      text-align: center;
     }
     &__error {
+      color: red !important;
     }
+
     &__submit {
       @include wrapper;
       padding: $base-size;
@@ -39,6 +43,13 @@
           transition: $transition;
         }
       }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .root {
+    .register__field {
+      width: 90%;
     }
   }
 }

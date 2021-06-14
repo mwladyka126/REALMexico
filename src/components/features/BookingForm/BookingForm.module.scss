@@ -9,11 +9,14 @@
     &__item {
       @include wrapper;
       padding: $base-size * 2 0;
+      font-weight: 600;
+
       .title {
         margin: 0 auto;
       }
       .subtitle {
         margin-top: $base-size * 2;
+        font-weight: 400;
       }
       .textarea {
         width: 100%;

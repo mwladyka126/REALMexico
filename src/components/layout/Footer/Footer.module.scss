@@ -31,7 +31,10 @@
             font-weight: bold;
           }
           .link {
-            @include link;
+            .email {
+              color: $color-text-light !important;
+              @include link;
+            }
           }
           .icon {
             font-size: $base-size * 1.5;
@@ -57,10 +60,11 @@
             font-weight: bold;
           }
           .input {
-            height: 35px;
+            height: 36px;
             border: none;
             border-radius: 5%;
             width: 100%;
+            text-align: center;
           }
           .button {
             width: 100%;

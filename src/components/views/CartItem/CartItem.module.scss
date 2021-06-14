@@ -34,6 +34,9 @@
         }
         .price {
           margin: 0 auto;
+          > p:nth-child(2) {
+            font-weight: 500;
+          }
         }
         .icon {
           margin: $base-size * 2;
@@ -59,13 +62,26 @@
   }
 }
 @media (max-width: 750px) {
-  .reservation {
-    &__item {
-      .hero {
-        .image {
-          border: none;
-        }
-      }
+  .image {
+    margin: 0 auto !important;
+  }
+  .message {
+    .textfield {
+      width: 100% !important;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      margin: 0 5px !important;
+    }
+    .icon {
+      margin: 0 0 0 10px !important;
+      padding: 0 !important;
     }
   }
 }

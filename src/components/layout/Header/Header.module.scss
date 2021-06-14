@@ -55,6 +55,10 @@
   .menuSmall {
     @extend .container__navbar;
     display: none;
+    .list {
+      align-items: center;
+      width: 100%;
+    }
   }
 }
 @media (max-width: 800px) {

@@ -24,3 +24,11 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .description {
+    &__button {
+      order: 3;
+    }
+  }
+}

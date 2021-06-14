@@ -96,12 +96,12 @@ class Component extends React.Component {
                 </div>
                 <Paper>
                   <Row>
-                    <Col xs="12" sm="6">
+                    <Col xs="12" sm="12" lg="6">
                       <div className={styles.photoWrapper}>
                         <img src={offer.image[0]} alt={offer.title} />
                       </div>
                     </Col>
-                    <Col xs="12" sm="6">
+                    <Col xs="12" sm="12" lg="6">
                       <div className={styles.photoWrapper}>
                         <img src={offer.image[1]} alt={offer.title} />
                       </div>

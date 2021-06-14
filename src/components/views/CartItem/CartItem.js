@@ -206,7 +206,7 @@ class Component extends React.Component {
                     id="outlined-multiline-static"
                     label="Write us your ideas"
                     multiline
-                    rows={2}
+                    rows={1}
                     defaultValue={message}
                     name="message"
                     onChange={this.handleChange}

@@ -6,9 +6,6 @@ import { Container, Row, Col, Button } from "reactstrap";
 
 import clsx from "clsx";
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from "./Footer.module.scss";
 import {
   faCalendarAlt,
@@ -37,19 +34,19 @@ const Component = ({ className, children }) => (
           <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon
               icon={faEnvelope}
-              href="contact@REALMexico.com"
+              href="REAL@Mexico.com"
               className={styles.icon}
             />
             <p>By mail</p>
             <p className={styles.link}>
-              <Link to={`#`} className={styles.link}>
-                contact@REALMexico.com
-              </Link>
+              <a href="mailto:REAL@Mexico.com" className={styles.email}>
+                real@mex.com
+              </a>
             </p>
           </Col>
           <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
             <FontAwesomeIcon icon={faCalendarAlt} className={styles.icon} />
-            <p>Every day on weeks days</p>
+            <p>During the week</p>
             <p>From 8:00 till 16:00</p>
           </Col>
           <Col xs="12" sm="6" md="2" className={styles.footer__top__inner__col}>
@@ -130,16 +127,6 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const footer = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as Footer,

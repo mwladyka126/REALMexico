@@ -44,14 +44,17 @@ const Component = ({
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Must be 15 characters or less")
-            .required("Required"),
+            .required("This field is required"),
           lastName: Yup.string()
             .max(20, "Must be 20 characters or less")
-            .required("Required"),
+            .required("This field is required"),
           email: Yup.string()
             .email("Invalid email address")
-            .required("Required"),
-          phone: Yup.number().positive().integer().required(),
+            .required("Invalid email address"),
+          phone: Yup.number()
+            .positive()
+            .integer()
+            .required("Invalid phone number"),
         })}
         onSubmit={(values) => submitOrder(values)}
       >
@@ -64,7 +67,9 @@ const Component = ({
             type="text"
             className={styles.register__field}
           />
-          <ErrorMessage name="firstName" className={styles.register__error} />
+          <div className={styles.register__error}>
+            <ErrorMessage name="firstName" className={styles.register__error} />
+          </div>
 
           <label htmlFor="lastName" className={styles.register__label}>
             Last Name
@@ -74,13 +79,17 @@ const Component = ({
             type="text"
             className={styles.register__field}
           />
-          <ErrorMessage name="lastName" className={styles.register__error} />
+          <div className={styles.register__error}>
+            <ErrorMessage name="lastName" />
+          </div>
 
           <label htmlFor="email" className={styles.register__label}>
             Email Address
           </label>
           <Field name="email" type="email" className={styles.register__field} />
-          <ErrorMessage name="email" className={styles.register__error} />
+          <div className={styles.register__error}>
+            <ErrorMessage name="email" />
+          </div>
 
           <label htmlFor="phone" className={styles.register__label}>
             Phone
@@ -90,7 +99,9 @@ const Component = ({
             type="number"
             className={styles.register__field}
           />
-          <ErrorMessage name="firstName" className={styles.register__error} />
+          <div className={styles.register__error}>
+            <ErrorMessage name="phone" />
+          </div>
 
           <div className={styles.register__submit}>
             <div className={styles.price}>{totalPrice}</div>

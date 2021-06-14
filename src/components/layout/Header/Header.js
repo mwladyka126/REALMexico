@@ -97,7 +97,7 @@ const Component = ({ className, children, amountInCart }) => {
       {menu ? (
         <div className={styles.menuSmall}>
           <Navbar light expand="md">
-            <Nav className="ml-auto" navbar>
+            <Nav className={clsx("ml-auto", styles.list)} navbar>
               <Link to={"/offers/rivieramaya"} className={styles.navItem}>
                 Riviera Maya
               </Link>
