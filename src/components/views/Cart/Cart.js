@@ -17,8 +17,6 @@ import { CartItem } from "../CartItem/CartItem";
 import { Register } from "../Register/Register";
 
 const Component = ({ className, children, loading, cart }) => {
-  // const cart = JSON.parse(localStorage.getItem("tripInCart"));
-
   const totalPrice = (cart) => {
     if (cart.length > 0) {
       const mapByPrice = cart.map((item) => parseInt(item.totalPrice));
@@ -97,6 +95,7 @@ const Component = ({ className, children, loading, cart }) => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  cart: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({

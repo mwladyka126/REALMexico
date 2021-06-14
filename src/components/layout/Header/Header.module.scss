@@ -3,25 +3,27 @@
 
 .root {
   background-color: $color-background-light;
+  font-family: $font-text;
+  font-size: $base-size * 1.5;
+  font-weight: bold;
   .container {
     @include container;
     @include wrapper;
-    font-family: $font-text;
-    font-size: $base-size * 1.5;
-    font-weight: bold;
+
     &__logo {
-      max-width: 150px;
+      max-width: 100px;
       max-height: 50px;
-      margin-bottom: 50px;
       img {
         @include image;
       }
     }
+
     &__navbar {
       .navItem {
         @include link;
         margin: $base-size;
         color: $color-text-dark;
+
         &:hover {
           color: $color-main;
         }
@@ -34,8 +36,47 @@
         }
       }
     }
-    &__cart {
-      margin: 0 auto;
+    &__buttons {
+      .cart {
+        .icon {
+          font-size: $base-size * 2;
+          color: $color-text-dark;
+          &:hover {
+            transform: scale(1.25);
+            transition: $transition;
+          }
+        }
+      }
+      .hamburger {
+        display: none;
+      }
+    }
+  }
+  .menuSmall {
+    @extend .container__navbar;
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    .menuBig {
+      display: none;
+    }
+    &__logo {
+      margin: $base-size;
+    }
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      margin: $base-size * 2;
+      .cart {
+        padding: $base-size;
+      }
+    }
+    .hamburger {
+      padding: $base-size;
+      display: block !important;
+      padding: $base-size;
       .icon {
         font-size: $base-size * 2;
         color: $color-text-dark;
@@ -46,5 +87,8 @@
         }
       }
     }
+  }
+  .menuSmall {
+    display: block !important;
   }
 }

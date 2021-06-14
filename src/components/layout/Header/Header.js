@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import Badge from "@material-ui/core/Badge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 
 import clsx from "clsx";
 
@@ -22,16 +22,21 @@ import { countInCart } from "../../../redux/offersRedux";
 import styles from "./Header.module.scss";
 
 const Component = ({ className, children, amountInCart }) => {
-  // const cart = JSON.parse(localStorage.getItem("tripInCart"));
+  const [menu, setMenu] = useState(false);
+  const showMenu = () => setMenu(!menu);
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
         <div className={styles.container__logo}>
-          <Link to={"/"}>
-            <img src="/images/logo.png" alt="Logo" title="REALMexico" />
-          </Link>
+          <div className={styles.logo}>
+            {" "}
+            <Link to={"/"}>
+              <img src="/images/logo.png" alt="Logo" title="REALMexico" />
+            </Link>
+          </div>
         </div>
-        <div className={styles.container__navbar}>
+
+        <div className={styles.container__navbar + " " + styles.menuBig}>
           <Navbar light expand="md">
             <Nav className="ml-auto" navbar>
               <Link to={"/offers/rivieramaya"} className={styles.navItem}>
@@ -66,14 +71,55 @@ const Component = ({ className, children, amountInCart }) => {
             </Nav>
           </Navbar>
         </div>
-        <div className={styles.container__cart}>
-          <Link to={"/cart"} className={styles.link}>
-            <Badge color="secondary" badgeContent={amountInCart}>
-              <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
-            </Badge>
-          </Link>
+        <div className={styles.container__buttons}>
+          <div className={styles.cart}>
+            <Link to={"/cart"} className={styles.link}>
+              <Badge color="secondary" badgeContent={amountInCart}>
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  className={styles.icon}
+                />
+              </Badge>
+            </Link>
+          </div>
+
+          <div className={styles.hamburger}>
+            <FontAwesomeIcon
+              onClick={showMenu}
+              className={styles.icon}
+              icon={faBars}
+            >
+              x
+            </FontAwesomeIcon>
+          </div>
         </div>
       </div>
+      {menu ? (
+        <div className={styles.menuSmall}>
+          <Navbar light expand="md">
+            <Nav className="ml-auto" navbar>
+              <Link to={"/offers/rivieramaya"} className={styles.navItem}>
+                Riviera Maya
+              </Link>
+              <Link to={"/offers/oaxaca"} className={styles.navItem}>
+                Oaxaca
+              </Link>
+              <Link to={"/offers/chiapas"} className={styles.navItem}>
+                Chiapas
+              </Link>
+              <Link to={"/offers/jalisco"} className={styles.navItem}>
+                Jalisco
+              </Link>
+              <Link to={"/offers/cdmx"} className={styles.navItem}>
+                Ciudad de Mexico
+              </Link>
+              <Link to={"/offers/huastecapotosina"} className={styles.navItem}>
+                Huasteca Potosina
+              </Link>
+            </Nav>
+          </Navbar>
+        </div>
+      ) : null}
     </div>
   );
 };
