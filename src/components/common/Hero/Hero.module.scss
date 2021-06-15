@@ -6,13 +6,14 @@
     @include wrapper;
     @include container;
     color: $color-text-dark;
-    padding: $base-size 0;
+    padding: $base-size;
     &__title {
-      padding: $base-size;
+      padding: $base-size 0;
     }
     &__button {
       background-color: $color-background-color;
       padding: $base-size;
+      margin-bottom: $base-size;
       .link {
         @include link;
         color: $color-text-light;
@@ -21,6 +22,7 @@
     }
     &__subtitle {
       padding: $base-size;
+      text-align: justify;
     }
   }
 }

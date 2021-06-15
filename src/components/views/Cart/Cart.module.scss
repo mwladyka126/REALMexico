@@ -5,9 +5,16 @@
   color: $color-text-dark;
   .container {
     @include container;
-    .title {
-      text-align: center;
-      padding: $base-size * 2;
+    .mainInfo {
+      .title {
+        text-align: center;
+        padding: $base-size * 2;
+      }
+      .icon {
+        color: $color-success;
+        margin: $base-size * 2;
+        font-size: $base-size * 5;
+      }
     }
 
     .summary {

@@ -32,20 +32,20 @@ const Component = ({ className, children, loading, cart }) => {
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
         {loading.confirmation ? (
-          <>
+          <div className={styles.mainInfo}>
             {" "}
             <h2 className={styles.title}>Thank you for your booking</h2>
-            <FontAwesomeIcon icon={faCheckCircle} />
-          </>
+            <FontAwesomeIcon icon={faCheckCircle} className={styles.icon} />
+          </div>
         ) : (
-          <>
+          <div className={styles.mainInfo}>
             {" "}
             {cart && cart.length > 0 ? (
               <h2 className={styles.title}>Proccess your booking</h2>
             ) : (
               <h2 className={styles.title}>Your cart is empty!</h2>
             )}
-          </>
+          </div>
         )}
 
         {cart && cart.map((item) => <CartItem {...item} />)}

@@ -20,13 +20,13 @@ const Component = ({ className }) => {
     },
     {
       id: "2",
-      image: "/images/offers/Huasteca4.jpg",
+      image: "/images/offers/sayulita.jpg",
       title: "Fall in love with Mexico",
       subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
     },
     {
       id: "3",
-      image: "images/offers/Huasteca2.jpg",
+      image: "images/offers/tortugas.jpg",
       title: "Trips that maches your profile",
       subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
     },

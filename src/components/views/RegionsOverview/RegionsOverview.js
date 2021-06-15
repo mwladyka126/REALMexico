@@ -51,7 +51,7 @@ class Component extends React.Component {
       return (
         <div className={clsx(className, styles.root)}>
           <Hero
-            title="Discover Mexico with us"
+            title="We offer tours from different regions"
             buttonDesc="All offers"
             subtitle="Discover our selection of experiences in Mexico. Must-see tours,
           honeymoon itineraries, adventure trips, all are flexible and will
@@ -62,7 +62,7 @@ class Component extends React.Component {
 
           <Row className={styles.offers}>
             {regions.map((region) => (
-              <Col xs="12" sm="6" md="6" key={region.id}>
+              <Col xs="12" sm="6" md="6" lg="4" key={region.id}>
                 <Card className={styles.offer}>
                   <Link
                     to={`/offers/${region.regionId}`}

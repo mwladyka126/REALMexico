@@ -61,7 +61,8 @@
     }
   }
 }
-@media (max-width: 800px) {
+
+@media (max-width: 912px) {
   .container {
     .menuBig {
       display: none;
@@ -76,18 +77,19 @@
       .cart {
         padding: $base-size;
       }
-    }
-    .hamburger {
-      padding: $base-size;
-      display: block !important;
-      padding: $base-size;
-      .icon {
-        font-size: $base-size * 2;
-        color: $color-text-dark;
 
-        &:hover {
-          transform: scale(1.25);
-          transition: $transition;
+      .hamburger {
+        padding: $base-size;
+        display: block !important;
+        padding: $base-size;
+        .icon {
+          font-size: $base-size * 2;
+          color: $color-text-dark;
+
+          &:hover {
+            transform: scale(1.25);
+            transition: $transition;
+          }
         }
       }
     }

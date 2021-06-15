@@ -86,18 +86,19 @@ class Component extends React.Component {
             <Col xs="12" sm="7">
               <div>
                 <div className={styles.element}>
-                  <h3>{offer.title}</h3>
+                  <h2>{offer.title}</h2>
                   <p>{offer.description}</p>
                 </div>
 
                 <div className={styles.element}>
-                  <h3>Highlights</h3>
+                  <h4>Highlights</h4>
+                  <p>{offer.description}</p>
                   <p>{offer.description}</p>
                 </div>
-                <Paper>
+                <Paper className={styles.photos}>
                   <Row>
                     <Col xs="12" sm="12" lg="6">
-                      <div className={styles.photoWrapper}>
+                      <div className={styles.photoWrapperLeft}>
                         <img src={offer.image[0]} alt={offer.title} />
                       </div>
                     </Col>
@@ -117,7 +118,7 @@ class Component extends React.Component {
                 </Paper>
 
                 <Hero
-                  title={`Discover ${offer.region} region`}
+                  title={`Check other trips in ${offer.region}`}
                   buttonDesc={`${offer.region} trips`}
                   subtitle="Discover our selection of experiences in Mexico. Must-see tours,
           honeymoon itineraries, adventure trips, all are flexible and will
