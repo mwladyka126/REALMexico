@@ -32,8 +32,7 @@ const Component = ({ className, children, loading, cart }) => {
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
         {loading.confirmation ? (
-          <div className={styles.mainInfo}>
-            {" "}
+          <div className={styles.confirmation}>
             <h2 className={styles.title}>Thank you for your booking</h2>
             <FontAwesomeIcon icon={faCheckCircle} className={styles.icon} />
           </div>
