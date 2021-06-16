@@ -74,7 +74,7 @@ const Component = ({ className, children, amountInCart }) => {
         <div className={styles.container__buttons}>
           <div className={styles.cart}>
             <Link to={"/cart"} className={styles.link}>
-              <Badge color="secondary" badgeContent={amountInCart}>
+              <Badge color="primary" badgeContent={amountInCart}>
                 <FontAwesomeIcon
                   icon={faShoppingCart}
                   className={styles.icon}

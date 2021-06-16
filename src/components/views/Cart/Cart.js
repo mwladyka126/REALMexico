@@ -16,7 +16,7 @@ import styles from "./Cart.module.scss";
 import { CartItem } from "../CartItem/CartItem";
 import { Register } from "../Register/Register";
 
-const Component = ({ className, children, loading, cart }) => {
+const Component = ({ className, loading, cart }) => {
   const totalPrice = (cart) => {
     if (cart.length > 0) {
       const mapByPrice = cart.map((item) => parseInt(item.totalPrice));
@@ -33,14 +33,15 @@ const Component = ({ className, children, loading, cart }) => {
       <div className={styles.container}>
         {loading.confirmation ? (
           <div className={styles.confirmation}>
-            <h2 className={styles.title}>Thank you for your booking</h2>
+            <h2 className={styles.title}>Thank you for your booking !</h2>
+            <p>Check your email for confirmation</p>
             <FontAwesomeIcon icon={faCheckCircle} className={styles.icon} />
           </div>
         ) : (
           <div className={styles.mainInfo}>
             {" "}
             {cart && cart.length > 0 ? (
-              <h2 className={styles.title}>Proccess your booking</h2>
+              <h2 className={styles.title}>Proccess your booking!</h2>
             ) : (
               <h2 className={styles.title}>Your cart is empty!</h2>
             )}
@@ -92,7 +93,7 @@ const Component = ({ className, children, loading, cart }) => {
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
+  loading: PropTypes.object,
   className: PropTypes.string,
   cart: PropTypes.array,
 };

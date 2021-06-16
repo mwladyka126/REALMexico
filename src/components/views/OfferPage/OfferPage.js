@@ -66,7 +66,6 @@ class Component extends React.Component {
       addToCart,
       loading: { active, error },
     } = this.props;
-    console.log("offer", offer);
     if (active || offer === {}) {
       return (
         <Paper className={styles.component}>

@@ -43,7 +43,6 @@ export const fetchBookingsFromAPI = () => {
 export const addBookingRequest = (data) => {
   return (dispatch) => {
     dispatch(fetchStarted());
-    console.log("data", data);
     Axios.post(`${API_URL}/bookings`, data)
       .then((res) => {
         dispatch(addNewBooking(data));

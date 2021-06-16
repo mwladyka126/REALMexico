@@ -6,7 +6,7 @@ describe("Component Header", () => {
   it("should render without crashing", () => {
     const amountInCart = 1;
     const component = shallow(
-      <HeaderComponent className="class" children="str" amountInCart />
+      <HeaderComponent className="class" children="str" amountInCart={0} />
     );
     expect(component).toBeTruthy();
   });

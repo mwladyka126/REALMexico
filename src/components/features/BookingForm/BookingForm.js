@@ -84,7 +84,6 @@ class Component extends React.Component {
   render() {
     const { className, offer } = this.props;
     const { cart } = this.state;
-    console.log(cart);
     return (
       <div className={clsx(className, styles.root)}>
         <Card className={styles.booking}>
@@ -129,7 +128,16 @@ class Component extends React.Component {
               <AmountCounter maxNumber={20} setAmount={this.setPeople} />
             </div>
             <div className={styles.booking__item}>
-              <p>Price: </p>
+              <Tooltip title="per day per person">
+                <p>
+                  Price:
+                  <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    className={styles.icon}
+                  />
+                </p>
+              </Tooltip>
+
               <p>{offer.price} EUR</p>
             </div>
             <div className={styles.booking__item}>
