@@ -1,0 +1,41 @@
+{
+    "name": "REALMexico",
+    "short_name": "RMX",
+    "version": "1.0",
+    "icons": [{
+      "src": "icons/logo128x128.jpg",
+        "sizes": "128x128",
+        "type": "image/png"
+      }, {
+        "src": "icons/logo144x144.jpg",
+        "sizes": "144x144",
+        "type": "image/png"
+      }, {
+        "src": "icons/logo192x192.jpg",
+        "sizes": "192x192",
+        "type": "image/png"
+      }, {
+        "src": "icons/logo152x152.jpg",
+        "sizes": "152x152",
+        "type": "image/png"
+      },{
+        "src": "icons/logo512x512.jpg",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FFF",
+    "theme_color": "#363535",
+    "permissions": [
+      "http://*/",
+      "http://*.google.com/",
+      "http://.google.com/",
+      "http://localhost/*",
+      "https://localhost/*",
+      "https://maps.google.com/*",
+      "https://maps.googleapis.com/*"
+    ]
+  }
+  
