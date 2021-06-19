@@ -27,10 +27,9 @@ class Component extends React.Component {
     const {
       className,
       offers,
-      match,
       loading: { active, error },
     } = this.props;
-    const regionId = match.params.regionId;
+
     const region = offers.map((el) => el.region)[0];
     if (active || !offers.length) {
       return (
