@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 
 import styles from "./NotFound.module.scss";
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <Paper className={styles.root} elevation={9}>
     <Grid container justify="center" direction="column" alignItems="center" xl>
       <Grid item>
@@ -35,7 +35,6 @@ const Component = ({ className, children }) => (
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 

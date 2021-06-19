@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import clsx from "clsx";
 
@@ -43,7 +44,23 @@ const Component = ({ className, loading, cart }) => {
             {cart && cart.length > 0 ? (
               <h2 className={styles.title}>Proccess your booking!</h2>
             ) : (
-              <h2 className={styles.title}>Your cart is empty!</h2>
+              <div className={styles.confirmation}>
+                <h2 className={styles.title}>Your cart is empty!</h2>
+                <Button
+                  size="large"
+                  variant="contained"
+                  className={styles.button}
+                >
+                  <Link
+                    to={"/offers"}
+                    variant="subtitle1"
+                    color="secondary"
+                    className={styles.link}
+                  >
+                    SEE ALL OFFERS
+                  </Link>
+                </Button>
+              </div>
             )}
           </div>
         )}

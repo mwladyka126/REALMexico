@@ -13,6 +13,16 @@
       .title {
         text-align: center;
       }
+      .button {
+        background-color: $color-background-color;
+        padding: $base-size;
+        margin-bottom: $base-size;
+        .link {
+          @include link;
+          color: $color-text-light;
+          font-family: bold;
+        }
+      }
       .icon {
         color: $color-success;
         font-size: $base-size * 5;

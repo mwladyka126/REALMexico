@@ -43,8 +43,4 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-export {
-  Component as Homepage,
-  // Container as Homepage,
-  Component as HomepageComponent,
-};
+export { Component as Homepage, Component as HomepageComponent };
