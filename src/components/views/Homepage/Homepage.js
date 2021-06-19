@@ -11,7 +11,7 @@ const Component = ({ className }) => {
   const slidesGalery = [
     {
       id: "1",
-      image: "images/offers/IslaMujeres.jpg",
+      image: "images/offers/isla.jpg",
       title: "Tailor made trips in Mexico",
       subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
     },
@@ -23,7 +23,7 @@ const Component = ({ className }) => {
     },
     {
       id: "3",
-      image: "images/offers/tortugas.jpg",
+      image: "images/offers/tortuga.jpg",
       title: "Trips that maches your profile",
       subtitle: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
     },
