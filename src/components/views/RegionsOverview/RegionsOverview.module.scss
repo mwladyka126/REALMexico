@@ -3,48 +3,4 @@
 
 .root {
   @include container;
-  .description {
-    @include wrapper;
-    @include container;
-    color: $color-text-dark;
-    padding: $base-size;
-    &__title {
-      padding: $base-size;
-    }
-    &__button {
-      background-color: $color-background-color;
-      padding: $base-size;
-      .link {
-        @include link;
-        color: $color-text-light;
-        font-family: bold;
-      }
-    }
-    &__subtitle {
-      padding: $base-size;
-    }
-  }
-  .offer {
-    margin: $base-size 0;
-    .link {
-      @include link;
-      .image {
-        @include image;
-        height: 300px;
-        &:hover {
-          transform: scale(1.5);
-          transition: $transition;
-        }
-      }
-      .wrapper {
-        display: flex;
-        .name {
-          color: $color-text-dark;
-          font-weight: bold;
-          margin: 0 auto;
-          font-size: 20px;
-        }
-      }
-    }
-  }
 }

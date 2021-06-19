@@ -9,6 +9,7 @@
   .container {
     @include container;
     @include wrapper;
+    padding: $base-size 0;
 
     &__logo {
       max-width: 100px;

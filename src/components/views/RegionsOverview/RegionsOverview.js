@@ -1,17 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-
 import { Row, Col } from "reactstrap";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import { Hero } from "../../common/Hero/Hero";
 import { Loading } from "../../common/Loading/Loading";
 import { Error } from "../../common/Error/Error";
+import { CardView } from "../../features/CardView/CardView";
 
 import clsx from "clsx";
 
@@ -60,34 +54,15 @@ class Component extends React.Component {
             link="/offers"
           />
 
-          <Row className={styles.offers}>
+          <Row>
             {regions.map((region) => (
               <Col xs="12" sm="6" md="6" lg="4" key={region.id}>
-                <Card className={styles.offer}>
-                  <Link
-                    to={`/offers/${region.regionId}`}
-                    className={styles.link}
-                  >
-                    <CardActionArea>
-                      <CardMedia
-                        className={styles.image}
-                        component="img"
-                        image={region.image}
-                        title={region.name}
-                      />
-                      <CardContent className={styles.wrapper}>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="h2"
-                          className={styles.name}
-                        >
-                          {region.name}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Link>
-                </Card>
+                <CardView
+                  id={region.id}
+                  link={`/offers/${region.regionId}`}
+                  image={region.image}
+                  name={region.name}
+                />
               </Col>
             ))}
           </Row>
@@ -113,8 +88,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export {
-  // Component as RegionsOverview,
-  Container as RegionsOverview,
-  Component as RegionsOverviewComponent,
-};
+export { Container as RegionsOverview, Component as RegionsOverviewComponent };

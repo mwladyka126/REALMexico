@@ -33,34 +33,42 @@ const Component = ({ className, loading, cart }) => {
     <div className={clsx(className, styles.root)}>
       <div className={styles.container}>
         {loading.confirmation ? (
-          <div className={styles.confirmation}>
-            <h2 className={styles.title}>Thank you for your booking !</h2>
-            <p>Check your email for confirmation</p>
-            <FontAwesomeIcon icon={faCheckCircle} className={styles.icon} />
-          </div>
+          <Paper elevation={5}>
+            <div className={styles.confirmation}>
+              <h2 className={styles.title}>Thank you for your booking !</h2>
+              <p className={styles.subtitle}>
+                Check your email for confirmation
+              </p>
+              <FontAwesomeIcon icon={faCheckCircle} className={styles.icon} />
+            </div>
+          </Paper>
         ) : (
           <div className={styles.mainInfo}>
             {" "}
             {cart && cart.length > 0 ? (
-              <h2 className={styles.title}>Proccess your booking!</h2>
-            ) : (
-              <div className={styles.confirmation}>
-                <h2 className={styles.title}>Your cart is empty!</h2>
-                <Button
-                  size="large"
-                  variant="contained"
-                  className={styles.button}
-                >
-                  <Link
-                    to={"/offers"}
-                    variant="subtitle1"
-                    color="secondary"
-                    className={styles.link}
-                  >
-                    SEE ALL OFFERS
-                  </Link>
-                </Button>
+              <div className={styles.process}>
+                <h2 className={styles.title}>Proccess your booking!</h2>
               </div>
+            ) : (
+              <Paper elevation={5}>
+                <div className={styles.confirmation}>
+                  <h2 className={styles.title}>Your cart is empty!</h2>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    className={styles.button}
+                  >
+                    <Link
+                      to={"/offers"}
+                      variant="subtitle1"
+                      color="secondary"
+                      className={styles.link}
+                    >
+                      SEE ALL OFFERS
+                    </Link>
+                  </Button>
+                </div>
+              </Paper>
             )}
           </div>
         )}

@@ -1,16 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import { Row, Col } from "reactstrap";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import { Hero } from "../../common/Hero/Hero";
 import { Loading } from "../../common/Loading/Loading";
 import { Error } from "../../common/Error/Error";
+import { CardView } from "../../features/CardView/CardView";
 
 import clsx from "clsx";
 
@@ -60,31 +55,11 @@ class Component extends React.Component {
           <Row>
             {allOffers.map((offer) => (
               <Col xs="12" sm="6" md="6" lg="4" key={offer._id}>
-                <Card className={styles.offer}>
-                  <Link
-                    to={`/offers/${offer.regionId}/${offer._id}`}
-                    className={styles.link}
-                  >
-                    <CardActionArea>
-                      <CardMedia
-                        className={styles.image}
-                        component="img"
-                        image={offer.image[0]}
-                        title={offer.title}
-                      />
-                      <CardContent className={styles.wrapper}>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="h2"
-                          className={styles.name}
-                        >
-                          {offer.title}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Link>
-                </Card>
+                <CardView
+                  link={`/offers/${offer.regionId}/${offer._id}`}
+                  image={offer.image[0]}
+                  name={offer.title}
+                />
               </Col>
             ))}
           </Row>
@@ -111,8 +86,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export {
-  // Component as AllOffers,
-  Container as AllOffers,
-  Component as AllOffersComponent,
-};
+export { Container as AllOffers, Component as AllOffersComponent };
