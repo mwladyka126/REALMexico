@@ -1,9 +1,10 @@
 import Axios from "axios";
 import { API_URL } from "../config";
+import { cleanCart } from "./offersRedux";
 
 /* selectors */
 export const getAllbookings = ({ bookings }) => bookings.data;
-export const getLoadingState = ({ bookings }) => bookings.loading;
+export const getLoadingBookings = ({ bookings }) => bookings.loading;
 
 /* action name creator */
 const reducerName = "bookings";
@@ -33,6 +34,7 @@ export const fetchBookingsFromAPI = () => {
         .then((res) => {
           dispatch(fetchSuccess(res.data));
         })
+
         .catch((err) => {
           dispatch(fetchError(err.message || true));
         });
@@ -46,6 +48,9 @@ export const addBookingRequest = (data) => {
     Axios.post(`${API_URL}/bookings`, data)
       .then((res) => {
         dispatch(addNewBooking(data));
+      })
+      .then((res) => {
+        dispatch(cleanCart());
       })
       .catch((err) => {
         dispatch(fetchError(err.message || true));

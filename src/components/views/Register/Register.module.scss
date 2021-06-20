@@ -45,6 +45,10 @@
       }
     }
   }
+  .snackbar {
+    background-color: $color-error;
+    bottom: 50vh;
+  }
 }
 @media (max-width: 400px) {
   .root {

@@ -134,8 +134,4 @@ const mapStateToProps = (state) => ({
 
 const Container = connect(mapStateToProps)(Component);
 
-export {
-  //Component as Cart,
-  Container as Cart,
-  Component as CartComponent,
-};
+export { Container as Cart, Component as CartComponent };

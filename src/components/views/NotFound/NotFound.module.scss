@@ -1,19 +1,30 @@
 @import "../../../styles/settings.scss";
+@import "../../../styles/mixins.scss";
 
 .root {
   padding: $base-size * 2;
-  .title {
-    color: $color-error;
-  }
-  .button {
-    margin: 0 auto;
-    background-color: $color-background-light;
-    padding: $base-size;
-    color: $color-text-dark;
-    font-family: bold;
-    &:hover {
-      transform: scale(1.2);
-      transition: $transition;
+  @include container;
+  .container {
+    @include wrapper;
+    margin: $base-size 0;
+    padding: $base-size * 2 0;
+    flex-direction: column;
+    text-align: center;
+    .title {
+      color: $color-error;
+      font-weight: bold;
+      padding: $base-size;
+    }
+    .button {
+      margin: 0 auto;
+      background-color: $color-background-light;
+      padding: $base-size;
+      color: $color-text-dark;
+      font-family: bold;
+      &:hover {
+        transform: scale(1.2);
+        transition: $transition;
+      }
     }
   }
 }
