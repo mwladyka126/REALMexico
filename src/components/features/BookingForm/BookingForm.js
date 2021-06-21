@@ -22,6 +22,7 @@ class Component extends React.Component {
       _id: this.props.offer._id,
       title: this.props.offer.title,
       image: this.props.offer.image[0],
+      regionId: this.props.offer.regionId,
       price: this.props.offer.price,
       people: 0,
       days: 0,
@@ -178,7 +179,6 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   offer: PropTypes.object,
 };

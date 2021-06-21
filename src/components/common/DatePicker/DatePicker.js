@@ -45,18 +45,4 @@ Component.propTypes = {
   setDate: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
-export {
-  Component as DatePicker,
-  // Container as DatePicker,
-  Component as DatePickerComponent,
-};
+export { Component as DatePicker, Component as DatePickerComponent };

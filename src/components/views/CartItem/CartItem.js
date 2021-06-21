@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AmountCounter } from "../../common/AmountCounter/AmountCounter";
 import { DatePicker } from "../../common/DatePicker/DatePicker";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { editInCart, removeFromCart } from "../../../redux/offersRedux.js";
@@ -137,6 +138,8 @@ class Component extends React.Component {
 
   render() {
     const {
+      _id,
+      regionId,
       className,
       title,
       image,
@@ -146,6 +149,8 @@ class Component extends React.Component {
       totalPrice,
       message,
     } = this.props;
+
+    console.log(regionId);
     return (
       <div className={clsx(className, styles.root)}>
         <div className={styles.container}>
@@ -155,12 +160,14 @@ class Component extends React.Component {
                 <Col xs="12" sm="6" md="4" className={styles.reservation__item}>
                   <div className={styles.hero}>
                     <h5>Your trip: {title}</h5>
-                    <CardMedia
-                      className={styles.image}
-                      component="img"
-                      image={image}
-                      title={title}
-                    />
+                    <Link to={`/offers/${regionId}/${_id}`}>
+                      <CardMedia
+                        className={styles.image}
+                        component="img"
+                        image={image}
+                        title={title}
+                      />
+                    </Link>
                   </div>
                 </Col>
                 <Col xs="12" sm="6" md="3" className={styles.reservation__item}>
@@ -223,7 +230,6 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.string,
@@ -242,8 +248,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export {
-  //Component as CartItem,
-  Container as CartItem,
-  Component as CartItemComponent,
-};
+export { Container as CartItem, Component as CartItemComponent };

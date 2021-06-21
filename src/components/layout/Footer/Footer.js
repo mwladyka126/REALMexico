@@ -23,7 +23,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <footer className={styles.footer}>
       <Container className={styles.footer__top}>
@@ -119,17 +119,11 @@ const Component = ({ className, children }) => (
         </Row>
       </Container>
     </footer>
-    {children}
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 
-export {
-  Component as Footer,
-  // Container as Footer,
-  Component as FooterComponent,
-};
+export { Component as Footer, Component as FooterComponent };

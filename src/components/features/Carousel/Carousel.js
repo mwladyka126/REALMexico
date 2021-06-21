@@ -37,8 +37,4 @@ Component.propTypes = {
   slides: PropTypes.array,
 };
 
-export {
-  Component as Carousel,
-  // Container as Carousel,
-  Component as CarouselComponent,
-};
+export { Component as Carousel, Component as CarouselComponent };

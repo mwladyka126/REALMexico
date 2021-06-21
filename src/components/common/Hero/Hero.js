@@ -50,8 +50,4 @@ Component.propTypes = {
   subtitle: PropTypes.string,
 };
 
-export {
-  Component as Hero,
-  // Container as Hero,
-  Component as HeroComponent,
-};
+export { Component as Hero, Component as HeroComponent };

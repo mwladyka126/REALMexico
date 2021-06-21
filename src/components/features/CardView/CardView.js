@@ -38,7 +38,7 @@ const Component = ({ className, link, image, name }) => (
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
+  className: PropTypes.string,
   link: PropTypes.string,
   image: PropTypes.string,
   name: PropTypes.string,

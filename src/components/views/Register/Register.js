@@ -124,7 +124,7 @@ const Component = ({
           open={open}
           autoHideDuration={6000}
           onClose={closeSnack}
-          message="There are still errors in contact form"
+          message="There are still errors in the contact form"
           className={styles.snackbar}
         />
       )}
@@ -136,6 +136,8 @@ Component.propTypes = {
   className: PropTypes.string,
   totalPrice: PropTypes.string,
   bookings: PropTypes.array,
+  sendBooking: PropTypes.func,
+  loadingBookings: PropTypes.object,
 };
 const mapStateToProps = (state) => ({
   loadingBookings: getLoadingBookings(state),

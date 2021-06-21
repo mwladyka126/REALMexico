@@ -73,7 +73,7 @@ const Component = ({ className, loading, cart }) => {
           </div>
         )}
 
-        {cart && cart.map((item) => <CartItem {...item} />)}
+        {cart && cart.map((item) => <CartItem key={item._id} {...item} />)}
         {cart && cart.length > 0 ? (
           <Paper elevation={3}>
             <Card>

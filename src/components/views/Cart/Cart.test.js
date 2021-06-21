@@ -7,8 +7,30 @@ describe("Component Cart", () => {
     const component = shallow(
       <CartComponent
         className="class"
-        children="str"
-        cart={[]}
+        cart={[
+          {
+            _id: "2",
+            title: "title",
+            image: "str",
+            price: 10,
+            people: 10,
+            days: 10,
+            start: "",
+            totalPrice: "1000",
+            message: "",
+          },
+          {
+            _id: "1",
+            title: "title",
+            image: "str",
+            price: 20,
+            people: 1,
+            days: 1,
+            start: "",
+            totalPrice: "20",
+            message: "",
+          },
+        ]}
         loading={{ confirmation: "true" }}
       />
     );

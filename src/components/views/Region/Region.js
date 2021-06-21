@@ -88,10 +88,8 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   offers: PropTypes.array,
-  match: PropTypes.object,
   loading: PropTypes.object,
   fechOffers: PropTypes.func,
 };

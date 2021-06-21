@@ -17,7 +17,6 @@ describe("Component BookingForm", () => {
           totalPrice: "",
           message: "",
         }}
-        loading={{ confirmation: "true" }}
         className={"styles.class"}
       />
     );
