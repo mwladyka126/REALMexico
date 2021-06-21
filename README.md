@@ -1,4 +1,4 @@
-### This is a full-stack application project of the local travel agency in Mexico
+## This is a full-stack application project of the local travel agency in Mexico
 
 In the project directory, you can run:
 
@@ -14,9 +14,9 @@ to run the app and start API server
 
 to launch the test runner
 
-# Short description of the project:
+### Short description of the project:
 
-# FRONTEND:
+### FRONTEND:
 
 - created with `React`,
 - applies:
@@ -26,11 +26,11 @@ to launch the test runner
   - `Anxios` for sending requests to APi server,
 - test written with `Jest` and `Enzyme`
 
-# BACKEND:
+### BACKEND:
 
 - API server created with `Express` with the main aim to serve static files for the frontend part, communication and operations on the data base,
 - data base created with `MongoDB` and `Mongoose`
 
-# See the project on heroku
+### See the project on heroku
 
 https://realmexico.herokuapp.com/
