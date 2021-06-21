@@ -48,12 +48,12 @@ const Component = ({
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
-            .min(2, "Must be 15 characters or less")
-            .max(15, "Must be 15 characters or less")
+            .min(2, "Your name is too short")
+            .max(15, "Your name is too long")
             .required("This field is required"),
           lastName: Yup.string()
-            .min(2, "Must be 15 characters or less")
-            .max(20, "Must be 20 characters or less")
+            .min(2, "Your name is too short")
+            .max(20, "Your name is too long")
             .required("This field is required"),
           email: Yup.string()
             .email("Invalid email address")
