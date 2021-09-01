@@ -134,14 +134,10 @@ const mapStateToProps = (state) => ({
   amountInCart: countInCart(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
 
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as Header,
   Container as Header,
   Component as HeaderComponent,
 };

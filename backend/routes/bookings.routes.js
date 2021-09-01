@@ -36,7 +36,7 @@ router.post("/bookings", async (req, res) => {
     if (!validatedEmail) throw new Error("Wrong email!");
     const phonePattern = new RegExp("[0-9]{6,13}");
     const validatedPhone = phonePattern.test(phone);
-    if (!validatedPhone) throw new Error("Wrong email!");
+    if (!validatedPhone) throw new Error("Wrong number!");
 
     if (firstName.length < 3 || lastName.length < 3)
       throw new Error("Your name is to short");
@@ -47,8 +47,8 @@ router.post("/bookings", async (req, res) => {
         created,
         firstName: escape(firstName),
         lastName: escape(lastName),
-        email: validatedEmail,
-        phone: validatedPhone,
+        email: email,
+        phone: phone,
       });
       await newBooking.save();
       res.json({ newBooking });
