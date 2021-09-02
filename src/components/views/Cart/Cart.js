@@ -104,6 +104,7 @@ const Component = ({ className, loading, cart }) => {
                   <Col xs="12" className={styles.register__item}>
                     <Register
                       totalPrice={`TOTAL PRICE: ${totalPrice(cart)} EUR`}
+                      orderTotalValue={totalPrice(cart)}
                       bookings={cart}
                     />
                   </Col>

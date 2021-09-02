@@ -18,12 +18,15 @@ const Component = ({
   className,
   bookings,
   totalPrice,
+  orderTotalValue,
   sendBooking,
   loadingBookings,
 }) => {
   const submitOrder = (values) => {
     values.created = new Date();
     values.trips = bookings;
+    values.orderTotalValue = orderTotalValue;
+    console.log(totalPrice);
     sendBooking(values);
 
     if (localStorage.getItem("tripInCart")) {
